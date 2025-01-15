@@ -227,6 +227,11 @@
       <e><p><l><s n="Aa"/></l> <r><s n="aa"/></r></p></e>
       <e><p><l><s n="AA"/></l> <r><s n="AA"/></r></p></e>
     </pardef>
+    <pardef n="AA:aa" c="Downcase if titlecased/uppercased">
+      <e><p><l><s n="aa"/></l> <r><s n="aa"/></r></p></e>
+      <e><p><l><s n="Aa"/></l> <r><s n="aa"/></r></p></e>
+      <e><p><l><s n="AA"/></l> <r><s n="aa"/></r></p></e>
+    </pardef>
 
     <pardef n="sent">
       <e><i><w/><s n="sent"/></i></e>
@@ -262,6 +267,11 @@
       <e><par n="sent"/></e>
     </pardef>
 
+    <pardef n="cm|sent|vblex">
+      <e><par n="cm"/></e>
+      <e><par n="sent"/></e>
+    </pardef>
+
     <pardef n="det">
       <e><i><w/><s n="det"/><t/><d/></i></e>
     </pardef>
@@ -274,6 +284,11 @@
     <pardef n="det_det|empty">
       <e></e>
       <e><i>den<s n="det"/><s n="dem"/><s n="nt"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="rem:det" c="determinativ/pronomen, 'det' nt">
+      <e><p><l>den<s n="det"/><s n="dem"/><s n="nt"/><t/></l>             <r></r></p>    <par n="d:"/></e>
+      <e><p><l>den<s n="prn"/><s n="pers"/><s n="p3"/><s n="nt"/><s n="sg"/><s n="nom"/><t/></l>             <r></r></p>    <par n="d:"/></e>
     </pardef>
 
     <pardef n="adj">
@@ -414,6 +429,10 @@
       <e><par n="adv"/></e>
       <e><par n="adv"/><par n="adv"/></e>
       <e><par n="adv"/><par n="adv"/><par n="adv"/></e>
+    </pardef>
+    <pardef n="adj|adv">
+      <e><i><w/><s n="adj"/><t/><d/></i></e>
+      <e><par n="adv"/></e>
     </pardef>
     <pardef n="adj|adv|empty">
       <e></e>
@@ -775,6 +794,11 @@
       <e><par n="SN"/><par n="cm"/><par n="SN"/><i><w/><s n="cnjcoo"/><t/><d/></i><par n="SN"/></e>     <!-- ditt, datt og dutt -->
       <e><par n="SN"/><i><w/><s n="pr"/><t/><d/></i><par n="SN"/></e>                                   <!-- karakterer i krise -->
       <e><i><w/><s n="adv"/><t/><d/></i><par n="SN"/><par n="SN"/></e>                                  <!-- helt vanlige mennesklige egenskaper -->
+      <e>
+        <i>noe<s n="prn"/><t/><d/></i>
+        <i>av<s n="pr"/><t/><d/></i>
+        <par n="SN"/>
+      </e>
     </pardef>
 
     <pardef n="pr+np">
@@ -795,6 +819,13 @@
     <pardef n="pr+gen+SN|" c="Includes empty!">
       <e></e>                   <!-- under onsdagens møte -->
       <e><i><w/><s n="pr"/><t/><d/></i><i><w/><s n="n"/><t/><s n="gen"/><t/><d/></i><par n="SN"/></e>
+    </pardef>
+
+    <pardef n="i|på">
+      <e><i>i<s n="pr"/><d/></i></e>
+      <e><i>i<s n="pr"/><t/><d/></i></e>
+      <e><i>på<s n="pr"/><d/></i></e>
+      <e><i>på<s n="pr"/><t/><d/></i></e>
     </pardef>
 
     <pardef n="det+SN|" c="Includes empty!">
@@ -872,6 +903,13 @@
       <e><par n="adj"/></e><e><i><w/><s n="np"/><t/><d/></i></e>
       <e><i><w/><s n="det"/><t/><d/></i></e>
       <e><i><w/><s n="np"/><t/><d/></i><par n="ncmp*.n"/></e>
+    </pardef>
+
+    <pardef n="SUBJ|prn|det|empty" c="Includes empty!">
+      <e></e>
+      <e><i><w/><t/><s n="@subj"/><d/></i></e>
+      <e><par n="prn"/></e>
+      <e><i><w/><s n="det"/><t/><d/></i></e>
     </pardef>
 
     <pardef n="SN|np|prn|det">
@@ -1011,11 +1049,30 @@
       <e><i>dag<t/><d/></i></e>
     </pardef>
 
+    <pardef n="morgen-formiddag-ettermiddag-kveld-natt">
+      <e><i>morgen<t/></i></e>
+      <e><i>formiddag<t/></i></e>
+      <e><i>ettermiddag<t/></i></e>
+      <e><i>kveld<t/></i></e>
+      <e><i>natt<t/></i></e>
+    </pardef>
+
+    <pardef n="Meisterskap-lm" c="lemma only, no tags/word delimiters">
+      <e><i>OL</i></e>
+      <e><i>NM</i></e>
+      <e><i>EM</i></e>
+      <e><i>VM</i></e>
+    </pardef>
+
+    <pardef n="Årstid-lm" c="lemma only, no tags/word delimiters">
+      <e><i>høst</i></e>
+      <e><i>vår</i></e>
+      <e><i>sommer</i></e>
+      <e><i>vinter</i></e>
+    </pardef>
+
     <pardef n="Årstid">
-      <e><i>høst<t/><d/></i></e>
-      <e><i>vår<t/><d/></i></e>
-      <e><i>sommer<t/><d/></i></e>
-      <e><i>vinter<t/><d/></i></e>
+      <e><par n="Årstid-lm"/><i><t/><d/></i></e>
     </pardef>
 
     <pardef n="Månad">
@@ -1099,6 +1156,16 @@
     </pardef>
 
     <pardef n="alle-tider">
+      <e><par n="tid"/></e>
+      <e><par n="Tidsuttrykk"/></e>
+      <e><par n="Vekedag"/></e>
+      <e><par n="Vekedag"/><par n="dagtid"/></e> <!-- onsdag kveld -->
+      <e><par n="dagtid"/></e>
+      <e><par n="Månad"/></e>
+    </pardef>
+
+    <pardef n="alle-tider|empty">
+      <e></e>
       <e><par n="tid"/></e>
       <e><par n="Tidsuttrykk"/></e>
       <e><par n="Vekedag"/></e>
@@ -1230,6 +1297,11 @@
         <i><w/><s n="n"/><t/></i>
         <p><l><t/><s n="sg"/><s n="ind"/></l>      <r><t/><s n="sg"/><s n="def"/></r></p>  <par n="d"/>
       </e>
+    </pardef>
+   
+    <pardef n="mf-artikkel" c="ubunden artikkel - en/ei">
+      <e><i>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/><t/><d/></i></e>
+      <e><i>en<s n="det"/><s n="qnt"/><s n="f"/><s n="sg"/><t/><d/></i></e>
     </pardef>
    
     <pardef n="tal" c="Incl. million, milliard">
@@ -1624,6 +1696,7 @@
       <e><par n="ncmp*"/><i><w/><s n="n"/><t/><s n="pl"/></i>  <p><l><s n="ind"/></l><r><s n="def"/></r></p> <par n="d"/></e>
     </pardef>
 
+    <!-- S-GENITIV - SAMANSKRIVING -->
     <pardef n="genitiv2cmp" c="politiets arrest -> politiarresten; jf. t1x-reglar">
       <e c="barnas hovedstad -> barnehovudstaden">
         <i>barn<s n="n"/><t/></i>
@@ -1647,6 +1720,12 @@
         <i>verd<s n="n"/><t/></i>
         <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
         <i>hav<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="verdens kulturarv -> verdskulturarven">
+        <i>verd<s n="n"/><t/></i>
+        <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
+        <i>kulturarv<s n="n"/><t/></i>
         <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
       </e>
       <e c="Natos styrker -> Nato-styrkane">
@@ -1720,6 +1799,12 @@
         <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
         <i>varetekt<s n="n"/><t/></i> <par n="aa_d"/>
       </e>
+      <e c="jernbanens kunder -> jernbanekundene">
+        <i>jernbane<s n="n"/><t/></i>
+        <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
+        <i>kunde<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
       <e c="havbotnen">
         <i>hav<s n="n"/><t/></i>
         <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
@@ -1754,6 +1839,12 @@
         <par n="kvinner-menn"/>
         <p><l><s n="pl"/><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="sg"/><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
         <i>stafett<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="menneskehjernen, kattehjernen o.l.">
+        <i><w/><s n="n"/><t/></i>
+        <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
+        <i>hjerne<s n="n"/><t/></i>
         <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
       </e>
       <e c="bankgebyra">
@@ -1872,6 +1963,30 @@
         <i>sak<s n="n"/><t/></i>
         <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
         <i>gang<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="regjeringsplattforma">
+        <p><l>regjering<s n="n"/><t/><s n="sg"/><s n="def"/><s n="gen"/></l>        <r></r></p>    <par n="d:"/>
+        <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="cmp"/><d/></r></p>
+        <i>plattform<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="Regjeringsplattforma">
+        <p><l>Regjeringen<s n="np"/><s n="org"/><s n="m"/><s n="gen"/></l>        <r></r></p>    <par n="d:"/>
+        <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="cmp"/><d/></r></p>
+        <i>plattform<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="partiprofil">
+        <i>parti<s n="n"/><t/></i>
+        <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
+        <i>profil<s n="n"/><t/></i>
+        <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
+      </e>
+      <e c="løvens hule -> løvehòla">
+        <i>løve<s n="n"/><t/></i>
+        <p><l><s n="def"/><s n="gen"/><s n="aa"/></l> <r><s n="ind"/><s n="cmp"/></r></p>  <par n="d"/>
+        <i>hule<s n="n"/><t/></i>
         <p><l><s n="ind"/></l> <r><s n="def"/></r></p> <par n="aa_d"/>
       </e>
     </pardef>
@@ -2834,6 +2949,8 @@
       <e><i>økonomi<s n="n"/><s n="m"/></i></e>
       <e><i>grense<s n="n"/><s n="f"/></i></e>
       <e><i>grense<s n="n"/><s n="m"/></i></e>
+      <!-- <e><i><w/>minister<s n="n"/><s n="m"/></i></e> -->
+      <!-- <e><i><w/>president<s n="n"/><s n="m"/></i></e> -->
     </pardef>
 
     <pardef n="landsnamn-gen2adj-obj-nt">
@@ -2939,6 +3056,64 @@
       <e><p><l>i<b/>løpet<b/>av<s n="pr"/></l>  <r></r></p>  <par n="d:"/></e>
     </pardef>
 
+    <pardef n="rem-regjeringens">
+      <e><p><l>regjering<s n="n"/><t/><s n="sg"/><s n="def"/><s n="gen"/></l>        <r></r></p>    <par n="d:"/></e>
+      <e><p><l>Regjeringen<s n="np"/><s n="org"/><s n="m"/><s n="gen"/></l>        <r></r></p>    <par n="d:"/></e>
+    </pardef>
+
+    <pardef n="regjeringsord">
+      <e><par n="ncmp*"/><i>proposisjon<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>proposisjon<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>budsjett<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>budsjett<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>melding<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>stortingsmelding<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>reform<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>reform<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>plan<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>plan<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>høring<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>alternativ<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>satsing<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>ambisjon<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>utvalg<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>forslag<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>pakke<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>lov<s n="n"/><t/></i></e>
+    </pardef>
+
+    <pardef n="regjeringsord-forslag">
+      <e><par n="ncmp*"/><i>forslag<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>forslag<s n="n"/><t/></i></e>
+    </pardef>
+
+    <pardef n="regjeringsord-plan">
+      <e><i>plan<s n="n"/><t/></i></e>
+      <e><i>mål<s n="n"/><t/></i></e>
+      <e><i>målsetning<s n="n"/><t/></i></e>
+      <e><i>målsetting<s n="n"/><t/></i></e>
+      <e><i>kutt<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>tiltak<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i><w/>tiltak<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>vedtak<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>avgjørelse<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>beslutning<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>pakke<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>advokat<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>forhandlingsleder<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>frist<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>flytting<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>prosjekt<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>tilbud<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>løsning<s n="n"/><t/></i></e>
+      <e><par n="ncmp*"/><i>avtale<s n="n"/><t/></i></e>
+    </pardef>
+
+    <pardef n="regjeringsord-støtteparti">
+      <e><i>støtteparti<s n="n"/><t/></i></e>
+      <e><i>samarbeidsparti<s n="n"/><t/></i></e>
+    </pardef>
+    
     <pardef n="måleiningar">
       <e><i>prosent<t/><d/></i></e>
       <e><i>krone<t/><d/></i></e>
@@ -2958,19 +3133,6 @@
     <pardef n="måleiningar|empty">
       <e></e>
       <e><par n="måleiningar"/></e>
-    </pardef>
-
-    <pardef n="kongeleg">
-      <e><p><l>konge<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>konge<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>arveprins<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>arveprins<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>arveprinsesse<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></l> <r>arveprinsesse<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>dronning<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></l> <r>dronning<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>prinsesse<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></l> <r>prinsesse<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>prins<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>prins<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>kronprinsesse<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></l> <r>kronprinsesse<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>kronprins<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>kronprins<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>regent<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>regent<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
-      <e><p><l>tronarving<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>tronarving<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/></e>
     </pardef>
 
     <pardef n="berøre i X (def)">
@@ -2996,6 +3158,47 @@
       <e><i>gransking<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/><d/></i></e>
       <e><i>granskning<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/><d/></i></e>
       <e><i>granskning<s n="n"/><s n="f"/><s n="sg"/><s n="def"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="berøre-ord-ta-på">
+      <e><i>nese<s n="n"/><t/><d/></i></e>
+      <e><i>øre<s n="n"/><t/><d/></i></e>
+      <e><i>panne<s n="n"/><t/><d/></i></e>
+      <e><i>kinn<s n="n"/><t/><d/></i></e>
+      <e><i>hode<s n="n"/><t/><d/></i></e>
+      <e><i>hals<s n="n"/><t/><d/></i></e>
+      <e><i>arm<s n="n"/><t/><d/></i></e>
+      <e><i>bryst<s n="n"/><t/><d/></i></e>
+      <e><i>rygg<s n="n"/><t/><d/></i></e>
+      <e><i>rompe<s n="n"/><t/><d/></i></e>
+      <e><i>nakke<s n="n"/><t/><d/></i></e>
+      <e><i>hånd<s n="n"/><t/><d/></i></e>
+      <e><i>lår<s n="n"/><t/><d/></i></e>
+      <e><i>kne<s n="n"/><t/><d/></i></e>
+      <e><i>fot<s n="n"/><t/><d/></i></e>
+      <e><i>ankel<s n="n"/><t/><d/></i></e>
+      <e><i>finger<s n="n"/><t/><d/></i></e>
+      <e><i>tå<s n="n"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="berøre-ord-gjelde">
+      <e><par n="ncmp*"/><i>problem<s n="n"/><t/><d/></i></e>
+      <e><i>problemstilling<s n="n"/><t/><d/></i></e>
+      <e><i>spørsmål<s n="n"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="berøre-ord-påverke">
+      <e><par n="ncmp*"/><i>tilværelse<s n="n"/><t/><d/></i></e>
+      <e><par n="ncmp*"/><i>liv<s n="n"/><t/><d/></i></e>
+      <e><i>livsgrunnlag<s n="n"/><t/><d/></i></e>
+      <e><par n="ncmp*"/><i>hverdag<s n="n"/><t/><d/></i></e>
+      <e><par n="ncmp*"/><i>samfunn<s n="n"/><t/><d/></i></e>
+      <e><i><w/>samfunn<s n="n"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="berøre-ord-komme-inn-på">
+      <e><par n="ncmp*"/><i>tema<s n="n"/><t/><d/></i></e>
+      <e><par n="ncmp*"/><i>budskap<s n="n"/><t/><d/></i></e>
     </pardef>
 
     <pardef n="seg">
@@ -3603,6 +3806,11 @@
       <e><par n="ADV"/></e>
     </pardef>
 
+    <pardef n="adv|empty" c="Just one adverb. Includes empty!">
+      <e></e>
+      <e><par n="adv"/></e>
+    </pardef>
+
     <pardef n="adj|empty" c="Includes empty!">
       <e></e>
       <e><par n="adj"/></e>
@@ -3610,6 +3818,12 @@
 
     <pardef n="adv|pr|empty" c="Includes empty!">
       <e></e>
+      <e><par n="ADV"/></e>
+      <e><par n="pr"/></e>
+    </pardef>
+
+    <pardef n="adj|adv|pr">
+      <e><par n="adj"/></e>
       <e><par n="ADV"/></e>
       <e><par n="pr"/></e>
     </pardef>
@@ -3630,6 +3844,14 @@
       <e><i><w/><s n="adj"/><s n="pst"/><t/><d/></i></e>
       <e><i><w/><s n="adj"/><s n="sint"/><s n="pst"/><t/><d/></i></e>
       <e><i><w/><s n="adj"/><s n="pp"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="adj|adv-i|på|ute|inne">
+      <e><par n="adj|adv"/></e>
+      <e><i>i<s n="pr"/><t/><d/></i></e>
+      <e><i>på<s n="pr"/><t/><d/></i></e>
+      <e><i>ute<s n="pr"/><t/><d/></i></e>
+      <e><i>inne<s n="pr"/><t/><d/></i></e>
     </pardef>
 
     <pardef n="Sår-og-kroppsord">
@@ -4122,6 +4344,12 @@
       <e><par n="ncmp*"/><i>drikke<s n="n"/><t/></i></e>
     </pardef>
 
+    <pardef n="berørt-ord">
+      <e><i>tydelig<t/><d/></i></e>
+      <e><i>synlig<t/><d/></i></e>
+      <e><i>svært<t/><d/></i></e>
+    </pardef>
+
     <pardef n="head-noun" c="Requires 'aa' tag which is never used in compound-left-parts">
       <e><i><t/><s n="aa"/><t/></i></e>
       <e><i><t/><s n="Aa"/><t/></i></e>
@@ -4178,6 +4406,288 @@
       <e><i>bygning<s n="n"/><t/></i></e>
       <e><i>festning<s n="n"/><t/></i></e>
       <e><i>enklave<s n="n"/><t/></i></e>
+    </pardef>
+    
+    <pardef n="valgt-til|som-er">
+      <e>
+        <i><w/><s n="vblex"/><t/><d/></i>
+        <i>som<t/><d/></i>
+      </e>
+      <e>
+        <i><w/><s n="adj"/><t/><d/></i>
+        <i>som<t/><d/></i>
+      </e>
+      <e>
+        <i>som<t/><d/></i>
+        <i>være<s n="vblex"/><t/><d/></i>
+      </e>
+      <e>
+        <i>ha<t/><d/></i>
+        <i>være<s n="vblex"/><t/><d/></i>
+      </e>
+      <e>
+        <i><w/><t/><d/></i>
+        <i>være<s n="vblex"/><t/><d/></i>
+      </e>
+      <e>
+        <i>den<s n="det"/><s n="dem"/><s n="nt"/><t/><d/></i>
+        <i>være<s n="vblex"/><t/><d/></i>
+      </e>
+      <e>
+        <i>velge<t/><d/></i>
+        <i>til<t/><d/></i>
+      </e>
+    </pardef>
+    
+    <pardef n="vblex|pr">
+      <e><i><w/><s n="vblex"/><t/></i></e>
+      <e><i><w/><s n="pr"/><t/></i></e>
+    </pardef>
+    
+    <pardef n="vblex|adv|pr|sent-cm">
+      <e><i><w/><s n="vblex"/><t/></i></e>
+      <e><i><w/><s n="adj"/><s n="pp"/><t/></i></e>
+      <e><i><w/><s n="adv"/><t/></i></e>
+      <e><i><w/><s n="pr"/><t/></i></e>
+      <e><par n="sent-cm"/></e>
+    </pardef>
+
+    <pardef n="på-land">
+      <e><i>Andorra<s n="np"/></i></e>
+      <e><i>Antigua<b/>og<b/>Barbuda<s n="np"/></i></e>
+      <e><i>Azorene<s n="np"/></i></e>
+      <e><i>Asorene<s n="np"/></i></e>
+      <e><i>Bahamas<s n="np"/></i></e>
+      <e><i>Bali<s n="np"/></i></e>
+      <e><i>Barbados<s n="np"/></i></e>
+      <e><i>Belize<s n="np"/></i></e>
+      <e><i>Costa<b/>Rica<s n="np"/></i></e>
+      <e><i>Cuba<s n="np"/></i></e>
+      <e><i>Fiji<s n="np"/></i></e>
+      <e><i>Filippinene<s n="np"/></i></e>
+      <e><i>Færøyene<s n="np"/></i></e>
+      <e><i>Grenada<s n="np"/></i></e>
+      <e><i>Grønland<s n="np"/></i></e>
+      <e><i>Hawaii<s n="np"/></i></e>
+      <e><i>Island<s n="np"/></i></e>
+      <e><i>Jamaica<s n="np"/></i></e>
+      <e><i>Kapp Verde<s n="np"/></i></e>
+      <e><i>Kiribati<s n="np"/></i></e>
+      <e><i>Komorene<s n="np"/></i></e>
+      <e><i>Kypros<s n="np"/></i></e>
+      <e><i>Madagaskar<s n="np"/></i></e>
+      <e><i>Maldivene<s n="np"/></i></e>
+      <e><i>Mallorca<s n="np"/></i></e>
+      <e><i>Malta<s n="np"/></i></e>
+      <e><i>Marshalløyene<s n="np"/></i></e>
+      <e><i>Mauritius<s n="np"/></i></e>
+      <e><i>Nauru<s n="np"/></i></e>
+      <e><i>New<b/>Zealand<s n="np"/></i></e>
+      <e><i>Niue<s n="np"/></i></e>
+      <e><i>Orknøyene<s n="np"/></i></e>
+      <e><i>Palau<s n="np"/></i></e>
+      <e><i>Papua<b/>Ny-Guinea<s n="np"/></i></e>
+      <e><i>Saint<b/>Lucia<s n="np"/></i></e>
+      <e><i>Salomonøyene<s n="np"/></i></e>
+      <e><i>Samoa<s n="np"/></i></e>
+      <e><i>Seychellene<s n="np"/></i></e>
+      <e><i>Sri<b/>Lanka<s n="np"/></i></e>
+      <e><i>Taiwan<s n="np"/></i></e>
+      <e><i>Tonga<s n="np"/></i></e>
+      <e><i>Trinidad<s n="np"/></i></e>
+      <e><i>Tuvalu<s n="np"/></i></e>
+      <e><i>Vanuatu<s n="np"/></i></e>
+      <e><i>Åland<s n="np"/></i></e>
+    </pardef>
+
+    <pardef n="i-land">
+      <e><i>Afghanistan<s n="np"/></i></e>
+      <e><i>Afrika<s n="np"/></i></e>
+      <e><i>Alaska<s n="np"/></i></e>
+      <e><i>Albania<s n="np"/></i></e>
+      <e><i>Aleutene<s n="np"/></i></e>
+      <e><i>Algerie<s n="np"/></i></e>
+      <e><i>Amerika<s n="np"/></i></e>
+      <e><i>Andalucía<s n="np"/></i></e>
+      <e><i>Angola<s n="np"/></i></e>
+      <e><i>Aragón<s n="np"/></i></e>
+      <e><i>Argentina<s n="np"/></i></e>
+      <e><i>Armenia<s n="np"/></i></e>
+      <e><i>Aserbajdsjan<s n="np"/></i></e>
+      <e><i>Asia<s n="np"/></i></e>
+      <e><i>Asturias<s n="np"/></i></e>
+      <e><i>Australia<s n="np"/></i></e>
+      <e><i>Bahrain<s n="np"/></i></e>
+      <e><i>Baltikum<s n="np"/></i></e>
+      <e><i>Bangladesh<s n="np"/></i></e>
+      <e><i>Bayern<s n="np"/></i></e>
+      <e><i>Baskerland<s n="np"/></i></e>
+      <e><i>Belarus<s n="np"/></i></e>
+      <e><i>Belgia<s n="np"/></i></e>
+      <e><i>Benin<s n="np"/></i></e>
+      <e><i>Bhutan<s n="np"/></i></e>
+      <e><i>Bohuslän<s n="np"/></i></e>
+      <e><i>Bolivia<s n="np"/></i></e>
+      <e><i>Bosnia-Hercegovina<s n="np"/></i></e>
+      <e><i>Botswana<s n="np"/></i></e>
+      <e><i>Brasil<s n="np"/></i></e>
+      <e><i>Brunei<s n="np"/></i></e>
+      <e><i>Bulgaria<s n="np"/></i></e>
+      <e><i>Burkina<b/>Faso<s n="np"/></i></e>
+      <e><i>Burma<s n="np"/></i></e>
+      <e><i>Burundi<s n="np"/></i></e>
+      <e><i>Canada<s n="np"/></i></e>
+      <e><i>Chile<s n="np"/></i></e>
+      <e><i>Colombia<s n="np"/></i></e>
+      <e><i>Cremona<s n="np"/></i></e>
+      <e><i>Dalmatia<s n="np"/></i></e>
+      <e><i>Danmark<s n="np"/></i></e>
+      <e><i>De<b/>forente<b/>arabiske<b/>emirater<s n="np"/></i></e>
+      <e><i>Emiratene<s n="np"/></i></e>
+      <e><i>Den<b/>dominikanske<b/>republikk<s n="np"/></i></e>
+      <e><i>Den<b/>sentralafrikanske<b/>republikk<s n="np"/></i></e>
+      <e><i>Djibouti<s n="np"/></i></e>
+      <e><i>Dominica<s n="np"/></i></e>
+      <e><i>Ecuador<s n="np"/></i></e>
+      <e><i>Egypt<s n="np"/></i></e>
+      <e><i>Ekvatorial-Guinea<s n="np"/></i></e>
+      <e><i>Elfenbenskysten<s n="np"/></i></e>
+      <e><i>El<b/>Salvador<s n="np"/></i></e>
+      <e><i>England<s n="np"/></i></e>
+      <e><i>Eritrea<s n="np"/></i></e>
+      <e><i>Estland<s n="np"/></i></e>
+      <e><i>Etiopia<s n="np"/></i></e>
+      <e><i>Europa<s n="np"/></i></e>
+      <e><i>Finland<s n="np"/></i></e>
+      <e><i>Frankrike<s n="np"/></i></e>
+      <e><i>Gabon<s n="np"/></i></e>
+      <e><i>Gambia<s n="np"/></i></e>
+      <e><i>Georgia<s n="np"/></i></e>
+      <e><i>Ghana<s n="np"/></i></e>
+      <e><i>Guatemala<s n="np"/></i></e>
+      <e><i>Guinea<s n="np"/></i></e>
+      <e><i>Guinea-Bissau<s n="np"/></i></e>
+      <e><i>Guyana<s n="np"/></i></e>
+      <e><i>Haiti<s n="np"/></i></e>
+      <e><i>Havanna<s n="np"/></i></e>
+      <e><i>Hellas<s n="np"/></i></e>
+      <e><i>Honduras<s n="np"/></i></e>
+      <e><i>Hviterussland<s n="np"/></i></e>
+      <e><i>India<s n="np"/></i></e>
+      <e><i>Indonesia<s n="np"/></i></e>
+      <e><i>Ingusjetia<s n="np"/></i></e>
+      <e><i>Irak<s n="np"/></i></e>
+      <e><i>Iran<s n="np"/></i></e>
+      <e><i>Irland<s n="np"/></i></e>
+      <e><i>Israel<s n="np"/></i></e>
+      <e><i>Italia<s n="np"/></i></e>
+      <e><i>Japan<s n="np"/></i></e>
+      <e><i>Jemen<s n="np"/></i></e>
+      <e><i>Jordan<s n="np"/></i></e>
+      <e><i>Kambodsja<s n="np"/></i></e>
+      <e><i>Kamerun<s n="np"/></i></e>
+      <e><i>Kasakhstan<s n="np"/></i></e>
+      <e><i>Kenya<s n="np"/></i></e>
+      <e><i>Kina<s n="np"/></i></e>
+      <e><i>Kirgisistan<s n="np"/></i></e>
+      <e><i>Kongo-Brazzaville<s n="np"/></i></e>
+      <e><i>Kongo<s n="np"/></i></e>
+      <e><i>Kroatia<s n="np"/></i></e>
+      <e><i>Kuwait<s n="np"/></i></e>
+      <e><i>Laos<s n="np"/></i></e>
+      <e><i>Latvia<s n="np"/></i></e>
+      <e><i>Lesotho<s n="np"/></i></e>
+      <e><i>Libanon<s n="np"/></i></e>
+      <e><i>Liberia<s n="np"/></i></e>
+      <e><i>Libya<s n="np"/></i></e>
+      <e><i>Liechtenstein<s n="np"/></i></e>
+      <e><i>Litauen<s n="np"/></i></e>
+      <e><i>Luxemburg<s n="np"/></i></e>
+      <e><i>Luxembourg<s n="np"/></i></e>
+      <e><i>Malaysia<s n="np"/></i></e>
+      <e><i>Malawi<s n="np"/></i></e>
+      <e><i>Mali<s n="np"/></i></e>
+      <e><i>Marokko<s n="np"/></i></e>
+      <e><i>Mauritania<s n="np"/></i></e>
+      <e><i>Mexico<s n="np"/></i></e>
+      <e><i>Mikronesiaføderasjonen<s n="np"/></i></e>
+      <e><i>Moldova<s n="np"/></i></e>
+      <e><i>Monaco<s n="np"/></i></e>
+      <e><i>Mongolia<s n="np"/></i></e>
+      <e><i>Montenegro<s n="np"/></i></e>
+      <e><i>Mosambik<s n="np"/></i></e>
+      <e><i>Myanmar<s n="np"/></i></e>
+      <e><i>Namibia<s n="np"/></i></e>
+      <e><i>Nederland<s n="np"/></i></e>
+      <e><i>Nepal<s n="np"/></i></e>
+      <e><i>Nicaragua<s n="np"/></i></e>
+      <e><i>Niger<s n="np"/></i></e>
+      <e><i>Nigeria<s n="np"/></i></e>
+      <e><i>Nord-Afrika<s n="np"/></i></e>
+      <e><i>Nord-Korea<s n="np"/></i></e>
+      <e><i>Nord-Makedonia<s n="np"/></i></e>
+      <e><i>Norge<s n="np"/></i></e>
+      <e><i>Oman<s n="np"/></i></e>
+      <e><i>Pakistan<s n="np"/></i></e>
+      <e><i>Palestina<s n="np"/></i></e>
+      <e><i>Panama<s n="np"/></i></e>
+      <e><i>Paraguay<s n="np"/></i></e>
+      <e><i>Peru<s n="np"/></i></e>
+      <e><i>Polen<s n="np"/></i></e>
+      <e><i>Portugal<s n="np"/></i></e>
+      <e><i>Puerto<b/>Rico<s n="np"/></i></e>
+      <e><i>Qatar<s n="np"/></i></e>
+      <e><i>Romania<s n="np"/></i></e>
+      <e><i>Russland<s n="np"/></i></e>
+      <e><i>Rwanda<s n="np"/></i></e>
+      <e><i>Saint<b/>Kitts<b/>og<b/>Nevis<s n="np"/></i></e>
+      <e><i>Saint<b/>Vincent<b/>og<b/>Grenadinene<s n="np"/></i></e>
+      <e><i>San<b/>Marino<s n="np"/></i></e>
+      <e><i>São<b/>Tomé<b/>og<b/>Príncipe<s n="np"/></i></e>
+      <e><i>Saudi-Arabia<s n="np"/></i></e>
+      <e><i>Senegal<s n="np"/></i></e>
+      <e><i>Serbia<s n="np"/></i></e>
+      <e><i>Sierra<b/>Leone<s n="np"/></i></e>
+      <e><i>Singapore<s n="np"/></i></e>
+      <e><i>Skottland<s n="np"/></i></e>
+      <e><i>Slovakia<s n="np"/></i></e>
+      <e><i>Slovenia<s n="np"/></i></e>
+      <e><i>Somalia<s n="np"/></i></e>
+      <e><i>Spania<s n="np"/></i></e>
+      <e><i>Storbritannia<s n="np"/></i></e>
+      <e><i>Sudan<s n="np"/></i></e>
+      <e><i>Surinam<s n="np"/></i></e>
+      <e><i>Sveits<s n="np"/></i></e>
+      <e><i>Sverige<s n="np"/></i></e>
+      <e><i>Swaziland<s n="np"/></i></e>
+      <e><i>Syria<s n="np"/></i></e>
+      <e><i>Sør-Afrika<s n="np"/></i></e>
+      <e><i>Sør-Korea<s n="np"/></i></e>
+      <e><i>Tadsjikistan<s n="np"/></i></e>
+      <e><i>Tanzania<s n="np"/></i></e>
+      <e><i>Thailand<s n="np"/></i></e>
+      <e><i>Togo<s n="np"/></i></e>
+      <e><i>Tsjad<s n="np"/></i></e>
+      <e><i>Tsjekkia<s n="np"/></i></e>
+      <e><i>Tunisia<s n="np"/></i></e>
+      <e><i>Turkmenistan<s n="np"/></i></e>
+      <e><i>Tyrkia<s n="np"/></i></e>
+      <e><i>Tyskland<s n="np"/></i></e>
+      <e><i>Uganda<s n="np"/></i></e>
+      <e><i>Ukraina<s n="np"/></i></e>
+      <e><i>Ungarn<s n="np"/></i></e>
+      <e><i>Uruguay<s n="np"/></i></e>
+      <e><i>USA<s n="np"/></i></e>
+      <e><i>Usbekistan<s n="np"/></i></e>
+      <e><i>Valencia<s n="np"/></i></e>
+      <e><i>Venezuela<s n="np"/></i></e>
+      <e><i>Vietnam<s n="np"/></i></e>
+      <e><i>Wales<s n="np"/></i></e>
+      <e><i>Wien<s n="np"/></i></e>
+      <e><i>Zambia<s n="np"/></i></e>
+      <e><i>Zimbabwe<s n="np"/></i></e>
+      <e><i>Østerrike<s n="np"/></i></e>
+      <e><i>Øst-Timor<s n="np"/></i></e>
     </pardef>
 
    <pardef n="mot-til-med2mot">
@@ -4403,6 +4913,111 @@
       <e><i>sentralbankloven<t/></i></e>
       <e><i>klimaloven<t/></i></e>
       <e><i>arveloven<t/></i></e>
+    </pardef>
+
+    <pardef n="landets-ord">
+      <e><i>krigføring<s n="n"/><t/></i>
+      <p><l><t/><s n="ind"/></l>           <r><t/><s n="def"/></r></p> <par n="d"/></e>
+      <e><i>håndtering<s n="n"/><t/></i>
+      <p><l><t/><s n="ind"/></l>           <r><t/><s n="def"/></r></p> <par n="d"/></e>
+      <e><i>behandling<s n="n"/><t/></i>
+      <p><l><t/><s n="ind"/></l>           <r><t/><s n="def"/></r></p> <par n="d"/></e>
+      <e><i>utvikling<s n="n"/><t/></i>
+      <p><l><t/><s n="ind"/></l>           <r><t/><s n="def"/></r></p> <par n="d"/></e>
+      <e><i>framføring<s n="n"/><t/></i>
+      <p><l><t/><s n="ind"/></l>           <r><t/><s n="def"/></r></p> <par n="d"/></e>
+    </pardef>
+
+    <pardef n="enhver-ord">
+      <e><i>kritikk<s n="n"/><t/><d/></i></e>
+      <e><i>bruk<s n="n"/><t/><d/></i></e>
+      <e><i>uenighet<s n="n"/><t/><d/></i></e>
+      <e><i>aggresjon<s n="n"/><t/><d/></i></e>
+      <e><i>utleie<s n="n"/><t/><d/></i></e>
+      <e><i>støtte<s n="n"/><t/><d/></i></e>
+      <e><i>provokasjon<s n="n"/><t/><d/></i></e>
+      <e><i>produksjon<s n="n"/><t/><d/></i></e>
+      <e><i>lagring<s n="n"/><t/><d/></i></e>
+      <e><i>distribusjon<s n="n"/><t/><d/></i></e>
+      <e><i>aktivitet<s n="n"/><t/><d/></i></e>
+      <e><i>deltakelse<s n="n"/><t/><d/></i></e>
+      <e><i>ulempe<s n="n"/><t/><d/></i></e>
+      <e><i>legitimitet<s n="n"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="stort|høyt:">
+      <e><p><l>stor<s n="adj"/><s n="sint"/><s n="pst"/><t/></l> <r></r></p></e>
+      <e><p><l>høy<s n="adj"/><s n="sint"/><s n="pst"/><t/></l> <r></r></p></e>
+    </pardef>
+
+    <pardef n="stortingskomité">
+      <e>
+        <i><w/>komité<s n="n"/><t/></i>
+      </e>
+      <e>
+        <i><w/><s n="n"/><t/><s n="cmp"/><d/></i>
+        <i>komité<s n="n"/><t/></i>
+      </e>
+      <e>
+        <i><w/><s n="n"/><t/><s n="cmp-split"/><t/><d/></i>
+        <i>og<s n="cnjcoo"/><t/><d/></i>
+        <i><w/>komité<s n="n"/><t/></i>
+      </e>
+      <e>
+        <i><w/><s n="n"/><t/><s n="cmp-split"/><t/><d/></i>
+        <i>og<s n="cnjcoo"/><t/><d/></i>
+        <i><w/><s n="n"/><t/><s n="cmp"/><d/></i>
+        <i>komité<s n="n"/><t/></i>
+      </e>
+    </pardef>
+
+    <pardef n="at2selv_om">
+      <e><p><l>at<s n="cnjcoo"/></l>         <r>selv<b/>om<s n="cnjsub"/></r></p> <i><t/><d/></i></e>
+      <e><p><l>at<s n="cnjsub"/></l>         <r>selv<b/>om<s n="cnjsub"/></r></p> <i><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="bevege-seg-ord">
+      <e><i>og<t/><d/></i></e>
+      <e><i>i<t/><d/></i></e>
+      <e><i>utendørs<t/><d/></i></e>
+    </pardef>
+
+    <pardef n="bevege-seg-ord-II">
+      <e><i>østover<t/><d/></i></e>
+      <e><i>vestover<t/><d/></i></e>
+      <e><i>nordover<t/><d/></i></e>
+      <e><i>sørover<t/><d/></i></e>
+      <e><i>vid<s n="adj"/><s n="sint"/><s n="comp"/><t/><d/></i></e>
+    </pardef>
+
+    <pardef n="bevege-seg-ord-III|empty">
+      <e></e>
+      <e><i>uvær<t/><d/></i></e>
+      <e><i>regnvær<t/><d/></i></e>
+      <e><i>snøvær<t/><d/></i></e>
+      <e><i>finvær<t/><d/></i></e>
+      <e><i>oppholdsvær<t/><d/></i></e>
+      <e><i>storm<t/><d/></i></e>
+      <e><i>orkan<t/><d/></i></e>
+      <e><i>lavtrykk<t/><d/></i></e>
+      <e><i>høytrykk<t/><d/></i></e>
+    </pardef>
+
+    <pardef n="vinter-OL">
+      <e><i><w/>-OL<t/><d/></i></e>
+      <e><i><w/>-VM<t/><d/></i></e>
+      <e><i><w/>-EM<t/><d/></i></e>
+      <e><i><w/>-NM<t/><d/></i></e>
+    </pardef>
+
+    <pardef n="ha|få">
+      <e><i>ha<s n="vblex"/><t/><d/></i></e>
+      <e><i>få<s n="vblex"/><t/><d/></i></e>
+    </pardef>
+    
+    <pardef n="å|at">
+      <e><i>å<s n="part"/><t/><d/></i></e>
+      <e><i>at<t/><d/></i></e>
     </pardef>
 
   </pardefs>
@@ -7135,7 +7750,7 @@
     <e lm="i samme øyeblikk → i samme øyeblikket" c="i same augneblinken">
       <i>i<t/><d/></i>
       <i>samme<t/><d/></i>
-      <p><l>øyeblikk</l>      <r>øyeblikk<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/></r></p> <i><t/><d/></i>
+      <p><l>øyeblikk<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/></l>      <r>øyeblikk<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/></r></p> <i><t/><d/></i>
     </e>
 
     <e lm="et øyeblikks + subst -> et glimt av + subst" c="eit glimt av + subst">
@@ -7196,11 +7811,39 @@
       <p><l>bopel<t/><d/></l> <r></r></p>
     </e>
 
-    <e lm="forbli X i -> bli værende X i" c="forblir Tromsø i">
+    <e lm="forbli + np -> bli værende + np" c="forblir Tromsø">
       <p><l>forbli</l>         <r>bli</r></p> <i><t/><d/></i>
       <i><w/><s n="np"/><t/><d/></i>
       <p><l></l>                  <r>være<s n="adj"/><s n="pprs"/><d/></r></p>
-      <i>i<t/><d/></i>
+    </e>
+
+    <e lm="forbli + adj -> holde fram med å være + adj" c="våpenkvila held fram med å vere skjør">
+      <p><l>forbli</l>         <r>holde</r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>fram<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>å<s n="part"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>være<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="adj"/><t/><d/></i>
+    </e>
+
+    <e lm="forbli X + vblex -> bli X værende + adv/vblex" c="held lesesalane fram med å vere stengde">
+      <p><l>forbli</l>         <r>holde</r></p> <i><t/><d/></i>
+      <par n="SN-exp"/>
+      <p><l></l>                  <r>fram<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>å<s n="part"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>være<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="vblex"/><t/><d/></i>
+    </e>
+
+    <e lm="forbli X + adj -> bli X værende + adv/vblex" c="held saka fram med å vere uløyst">
+      <p><l>forbli</l>         <r>holde</r></p> <i><t/><d/></i>
+      <par n="SN-exp"/>
+      <p><l></l>                  <r>fram<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>å<s n="part"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>være<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="adj"/><t/><d/></i>
     </e>
 
     <e lm="liten sannsynlighet for at -> lite trolig at" c="lite truleg at">
@@ -8369,6 +9012,69 @@
       <i>ramme</i>                    <par n="pp"/>
     </e>
 
+    <e lm="berøre + tema -> komme inn på + tema">
+      <p><l>berøre<s n="vblex"/></l>   <r>komme<s n="vblex"/></r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>inn<s n="pr"/><d/></r></p>
+      <p><l></l>                  <r>på<s n="pr"/><d/></r></p>
+      <par n="ANYWORDx3|empty"/>
+      <par n="berøre-ord-komme-inn-på"/>
+    </e>
+
+    <e lm="berøre + problem -> gjelde + problem">
+      <p><l>berøre<s n="vblex"/></l>   <r>gjelde<s n="vblex"/></r></p> <i><t/><d/></i>
+      <par n="berøre-ord-gjelde"/>
+    </e>
+
+    <e lm="berøre + np -> påvirke + np" c="påverke + np">
+      <p><l>berøre<s n="vblex"/></l>   <r>påvirke<s n="vblex"/></r></p> <i><t/><d/></i>
+      <par n="adv|empty"/>
+      <i><w/><s n="np"/><t/><d/></i>
+    </e>
+
+    <e lm="berøre tilværelsen -> påvirke tilværelsen" c="påverke tilværet">
+      <p><l>berøre<s n="vblex"/></l>   <r>påvirke<s n="vblex"/></r></p> <i><t/><d/></i>
+      <par n="ANYWORDx3|empty"/>
+      <par n="berøre-ord-påverke"/>
+    </e>
+
+    <e lm="å berøre en X -> å røre ved en X" c="å røre ved ein X">
+      <i>å<t/><d/></i>
+      <p><l>berøre<s n="vblex"/><s n="inf"/></l>   <r>røre<s n="vblex"/><s n="inf"/></r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>ved<s n="pr"/><d/></r></p>
+      <i>en<t/><d/></i>
+    </e>
+
+    <e lm="berører en hel generasjon -> påvirker en hel generasjon" c="påverkar ein heil generasjon">
+      <p><l>berøre<s n="vblex"/></l>   <r>påvirke<s n="vblex"/></r></p> <i><t/><d/></i>
+      <i>en<t/><d/></i>
+    </e>
+
+    <e lm="svært berørt av -> svært påvirket av" c="svært påverka av">
+      <par n="adj|adv"/>
+      <p><l>berøre<s n="adj"/><s n="pp"/></l>   <r>påvirke<s n="adj"/><s n="pp"/></r></p> <i><t/><d/></i>
+      <i>av<s n="pr"/><t/><d/></i>
+    </e>
+
+    <e lm="tydelig berørt -> tydelig rørt">
+      <par n="berørt-ord"/>
+      <p><l>berøre<s n="adj"/><s n="pp"/></l>   <r>røre<s n="adj"/><s n="pp"/></r></p> <i><t/><d/></i>
+    </e>
+
+    <e lm="knoppene skal berøres minst mulig -> knoppane skal rørast minst mogeleg" c="knoppane skal rørast minst mogeleg">
+      <i>knopp<t/><d/></i>      
+      <par n="modal+ville"/>
+      <p><l>berøre<s n="vblex"/></l>   <r>røre<s n="vblex"/></r></p> <i><t/><d/></i>
+    </e>
+
+    <e lm="kan berøre tilbudet -> kan få følger for tilbudet" c="kan få følgjer for tilbodet">
+      <par n="modal+ville"/>
+      <par n="SN-exp|np|prn|det|adv|adj|empty"/>
+      <par n="ANYWORDx3|empty"/>
+      <p><l>berøre<s n="vblex"/><s n="inf"/></l>   <r>få<s n="vblex"/><s n="inf"/></r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>følge<s n="n"/><s n="m"/><s n="pl"/><s n="ind"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>for<s n="pr"/><d/></r></p>
+    </e>
+
     <e lm="i den siste tiden -> den siste tiden" c="den siste tida">
       <p><l>i<s n="pr"/></l>  <r></r></p>  <par n="d:"/>
       <i>den<t/><d/></i>
@@ -8806,7 +9512,14 @@
     </e>
 
 
-    <!-- /Oppgi -->
+    <!-- /Oppgi --> 
+  
+    <e lm="en eller flere oppgaver -> ei eller flere oppgaver" c="ei eller fleire oppgåver">
+      <p><l>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/></l> <r>en<s n="det"/><s n="qnt"/><s n="f"/><s n="sg"/></r></p>  <par n="d"/>
+      <i>eller<t/><d/></i>
+      <i>mange<s n="adj"/><s n="sint"/><s n="comp"/><s n="un"/><s n="sp"/></i> <par n="d"/>
+      <i>oppgave<s n="n"/><t/><s n="pl"/><s n="ind"/></i> <par n="d"/>
+    </e>
 
     <e lm="det fryktes at -> man frykter for at" c="ein fryktar for at">
       <p><l>den<s n="prn"/><s n="pers"/><s n="p3"/><s n="nt"/><s n="sg"/><t/></l> <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/></r></p>  <par n="d"/>
@@ -10902,6 +11615,124 @@
       <i>tid<t/><d/></i>
     </e>
 
+    <e lm="tilbringe litt tid med å + inf + prep -> inf + litt + prep" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="inf"/><t/><d/></l>              <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/><s n="inf"/><t/><d/></i>
+      <p><l></l>                                                            <r>litt<s n="adj"/><s n="pst"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="pr"/><t/><d/></i>
+    </e>
+    <e lm="tilbringer litt tid med å + inf + prep -> pres + litt + prep" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pres"/><t/><d/></l>             <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pres"/></r></p>  <par n="d"/>
+      <p><l></l>                                                            <r>litt<s n="adj"/><s n="pst"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="pr"/><t/><d/></i>
+    </e>
+    <e lm="tilbrakte litt tid med å + inf + prep -> pret + litt + prep" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pret"/><t/><d/></l>             <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pret"/></r></p>  <par n="d"/>
+      <p><l></l>                                                            <r>litt<s n="adj"/><s n="pst"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="pr"/><t/><d/></i>
+    </e>
+    <e lm="(ha) tilbrakt litt tid med å + inf + prep -> pp + litt + prep" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pp"/><t/><d/></l>               <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pp"/></r></p>  <par n="d"/>
+      <p><l></l>                                                            <r>litt<s n="adj"/><s n="pst"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+      <i><w/><s n="pr"/><t/><d/></i>
+    </e>
+
+    <!-- som over utan preposisjon -->
+    <e lm="tilbringe litt tid med å + inf -> inf" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="inf"/><t/><d/></l>              <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/><s n="inf"/><t/><d/></i>
+    </e>
+    <e lm="tilbringer litt tid med å + inf -> pres" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pres"/><t/><d/></l>             <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pres"/></r></p>  <par n="d"/>
+    </e>
+    <e lm="tilbrakte litt tid med å + inf -> pret" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pret"/><t/><d/></l>             <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pret"/></r></p>  <par n="d"/>
+    </e>
+    <e lm="(ha) tilbrakt litt tid med å + inf -> pp" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe<s n="vblex"/><s n="pp"/><t/><d/></l>               <r></r></p>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                 <r></r></p>
+      <p><l>tid<s n="n"/><t/><d/></l>                                    <r></r></p>
+      <p><l>med<s n="pr"/><t/><d/></l>                                   <r></r></p>
+      <p><l>å<s n="part"/><t/><d/></l>                                   <r></r></p>
+      <i><w/><s n="vblex"/></i>
+      <p><l><s n="inf"/></l>                   <r><s n="pp"/></r></p>  <par n="d"/>
+    </e>
+
+    <e lm="må tilbringe litt tid -> må bruke litt tid" w="2.2"> <!-- 'spend some time' -->
+      <par n="modal"/>
+      <p><l>tilbringe</l>                   <r>bruke</r></p> <i><s n="vblex"/><s n="inf"/><t/><d/></i>
+      <i>litt<s n="adj"/><t/><d/></i>
+      <i>tid<s n="adj"/><t/><d/></i>
+      <i><w/><s n="pr"/><t/><d/></i>
+    </e>
+
+    <e lm="tilbringe litt tid med (nokon) -> være litt sammen med" c="vere litt saman med" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe</l>                   <r>være</r></p> <i><s n="vblex"/><t/><d/></i>
+      <i>litt<s n="adj"/><t/><d/></i>
+      <p><l>tid<s n="n"/><t/><d/></l>                                     <r></r></p>
+      <p><l></l>                                                            <r>sammen<s n="adv"/><s n="aa"/><d/></r></p>
+      <i>med<s n="pr"/><t/><d/></i>
+    </e>
+    <e lm="tilbringe litt tid sammen med (nokon) -> være litt sammen med" c="vere litt saman med" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe</l>                   <r>være</r></p> <i><s n="vblex"/><t/><d/></i>
+      <i>litt<s n="adj"/><t/><d/></i>
+      <p><l>tid<s n="n"/><t/><d/></l>                                     <r></r></p>
+      <i>sammen<b/>med<s n="pr"/><t/><d/></i>
+    </e>
+
+    <e lm="tilbringe litt tid i -> være en tid i" c="vere ei tid i" w="2.0"> <!-- 'spend some time' -->
+      <p><l>tilbringe</l>                   <r>være</r></p> <i><s n="vblex"/><t/><d/></i>
+      <p><l>litt<s n="adj"/><t/><d/></l>                                     <r></r></p>
+      <p><l></l>                                                            <r>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+      <i>tid<t/><d/></i>
+      <i>i<s n="pr"/><t/><d/></i>
+    </e>
+
+    <e lm="tilbringe mye tid hjemme -> være mykje hjemme" c="vere mykje heime">
+      <p><l>tilbringe</l>                   <r>være</r></p> <i><s n="vblex"/><t/><d/></i>
+      <i>mye<t/><d/></i>
+      <p><l>tid<s n="n"/><t/><d/></l>                                     <r></r></p>
+      <par n="adj|adv-i|på|ute|inne"/>
+    </e>
+
     <e lm="tilbringe tid -> være" c="vere">
       <p><l>tilbringe</l>                   <r>være</r></p> <i><s n="vblex"/><t/><d/></i>
       <par n="SN|ADV|prn|"/>
@@ -11245,6 +12076,18 @@
       <par n="ANYWORDx8|empty"/>
       <par n="avgjerds-ord"/>
     </e>
+
+    <e lm="treffe avgjørelse -> ta avgjørelse" c="ta avgjerd">
+      <p><l>treffe<s n="vblex"/></l>   <r>ta<s n="vblex"/></r></p> <i><t/><d/></i>
+      <par n="ANYWORDx3|empty"/>
+      <par n="avgjerds-ord"/>
+    </e>
+
+    <e lm="treffe tiltak -> iverksette tiltak" c="setje i verk tiltak">
+      <p><l>treffe<s n="vblex"/></l>   <r>iverksette<s n="vblex"/></r></p> <i><t/><d/></i>
+      <par n="ANYWORDx3|empty"/>
+      <i>tiltak<t/><d/></i>
+    </e>
     
     <e lm="vedtaket fattes / vil bli fattet -> vedtaket gjøres / vil bli gjort">
       <par n="vedtaks-ord"/>
@@ -11252,10 +12095,28 @@
       <p><l>fatte<s n="vblex"/></l>                          <r>gjøre<s n="vblex"/></r></p>  <i><t/><d/></i>
     </e>
     
+    <e lm="vedtaket treffes -> vedtaket gjøres" c="vedtaket gjerast">
+      <par n="vedtaks-ord"/>
+      <par n="ANYWORDx8|empty"/>
+      <p><l>treffe<s n="vblex"/></l>   <r>gjøre<s n="vblex"/></r></p> <i><t/><d/></i>
+    </e>
+    
+    <e lm="tiltaket treffes -> tiltaket iverksette" c="tiltaket blir sett i verk">
+      <i>tiltak<t/><d/></i>
+      <par n="ANYWORDx8|empty"/>
+      <p><l>treffe<s n="vblex"/></l>   <r>iverksette<s n="vblex"/></r></p> <i><t/><d/></i>
+    </e>
+    
     <e lm="avgjørelsen fattes / vil bli tatt -> avgjørelsen tas / vil bli tatt">
       <par n="avgjerds-ord"/>
       <par n="ANYWORDx8|empty"/>
       <p><l>fatte<s n="vblex"/></l>                          <r>ta<s n="vblex"/></r></p>  <i><t/><d/></i>
+    </e>
+    
+    <e lm="avgjørelsen treffes -> avgjørelsen tas">
+      <par n="avgjerds-ord"/>
+      <par n="ANYWORDx8|empty"/>
+      <p><l>treffe<s n="vblex"/></l>                          <r>ta<s n="vblex"/></r></p>  <i><t/><d/></i>
     </e>
     
     <e lm="vedtaket ble fattet -> vedtaket ble gjort" c="vedtaket vart gjort">
@@ -11605,6 +12466,23 @@
       <p><l>leder</l>            <r>statsleder</r></p>  <i><t/><d/></i>
     </e>
 
+
+     <e lm="Forsvarsbyggs ledelse -> Ledelsen i Forsvarsbygg" c="Leiinga i Forsvarsbygg">
+      <i><w/><s n="sent"/><s n="clb"/></i> <par n="d"/>
+      <p><l>Forsvarsbygg<t/><s n="gen"/></l>      <r></r></p>  <par n="d:"/>
+      <p><l>ledelse<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/></l><r>ledelse<s n="n"/><s n="m"/><s n="sg"/><s n="def"/></r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>i<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>Forsvarsbygg<s n="np"/><s n="org"/><s n="aa"/><d/></r></p>
+    </e>
+
+    <e lm="Forsvarsbyggs ledelse -> ledelsen i Forsvarsbygg" c="leiinga i Forsvarsbygg">
+      <p><l>Forsvarsbygg<t/><s n="gen"/></l>      <r></r></p>   <par n="d:"/>
+      <p><l>ledelse<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/></l><r>ledelse<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/></r></p> <i><t/><d/></i>
+      <p><l></l>                  <r>i<s n="pr"/><s n="aa"/><d/></r></p>
+      <p><l></l>                  <r>Forsvarsbygg<s n="np"/><s n="org"/><s n="aa"/><d/></r></p>
+    </e>
+
+
     <e lm="gå av hengslene -> gå av skaftet" c="gå av skaftet">
       <i>gå<s n="vblex"/><t/><d/></i>
       <par n="SN|ADV|prn|"/>
@@ -11683,9 +12561,17 @@
     <p><l>behefte</l> <r>prege</r></p>  <i><s n="adj"/><t/><d/></i>
     <p><l>med</l>     <r>av</r></p>     <i><t/><d/></i>
   </e>
+
+  <e lm="amorolfin neglelakk -> neglelakk med amorolfin" c="naglelakk med amorolfin">
+    <p><l>amorolfin<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></l> <r></r></p>  <par n="d:"/>
+    <i>neglelakk<s n="n"/><t/><s n="sg"/><s n="ind"/><t/></i> <par n="d"/>
+    <p><l></l>    <r>med<s n="pr"/><d/></r></p>
+    <p><l></l>    <r>amorolfin<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><d/></r></p>
+  </e>
   <!-- ventes -->
 
   <!-- flytting -->
+
   <e lm="Deretter ventes produksjonen å øke -> Deretter er produksjonen ventet å øke" c="Deretter er produksjonen venta å auke">
     <par n="ADVL"/>
     <p><l>vente<s n="vblex"/><s n="pres"/><s n="pasv"/></l> <r>være<s n="vblex"/><s n="pres"/></r></p> <par n="d"/>
@@ -11695,16 +12581,22 @@
     <p><l></l>    <r>vente<s n="vblex"/><s n="pp"/><d/></r></p>
     <par n="å/at"/>
   </e>
+
   <e lm="Deretter ventes det noe oppsving -> Deretter er det ventet noe oppsving" c="Deretter er det venta noko oppsving">
-    <par n="ADVL"/>
     <p><l>vente<s n="vblex"/><s n="pres"/><s n="pasv"/></l> <r>være<s n="vblex"/><s n="pres"/></r></p> <par n="d"/>
     <i>den<t/><d/></i>
-    <par n="ADV|empty"/>
-    <par n="pr+SN|"/>
-    <p><l></l>    <r>vente<s n="vblex"/><s n="pp"/><d/></r></p>
-    <par n="å/at/obj"/>
+    <par n="adv|empty"/>
+    <p><l></l>    <r>vente<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><d/></r></p>
   </e>
 
+  <e lm="som det ventes svar på -> som det er ventet svar på" c="som det er venta svar på">
+    <i>som<t/><d/></i>
+    <i>den<t/><d/></i>
+    <par n="adv|empty"/>
+    <p><l>vente<s n="vblex"/><s n="pres"/><s n="pasv"/></l> <r>være<s n="vblex"/><s n="pres"/></r></p> <par n="d"/>
+    <p><l></l>    <r>vente<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><d/></r></p>
+    <par n="SN"/>
+  </e>
 
   <e lm=", ventes ikke markedet å -> , er ikke markedet ventet å" c=", er ikkje marknaden venta å">
     <i>,<t/><d/></i>
@@ -11728,18 +12620,8 @@
    <e lm="Foreløpig ventes første renteøkning mot slutten av året" c="førebels er første renteauke venta mot slutten av året">
     <par n="ADVL"/>
     <p><l>vente<s n="vblex"/><s n="pres"/><s n="pasv"/></l> <r>være<s n="vblex"/><s n="pres"/></r></p> <par n="d"/>
-    <par n="det+SN"/>
-    <p><l></l>    <r>vente<s n="vblex"/><s n="pp"/><d/></r></p>
-    <par n="ADVL"/>
-  </e>
-
-   <e lm="Tirsdag ventes det noe regn i mye av Sør-Norge -> Tirsdag er det venta noe regn i mye av Sør-Norge" c="Tysdag er det venta noko regn i mykje av Sør-Noreg">
-    <par n="ADVL"/>
-    <p><l>vente<s n="vblex"/><s n="pres"/><s n="pasv"/></l> <r>være<s n="vblex"/><s n="pres"/></r></p> <par n="d"/>
-    <i>den<t/><d/></i>
-    <p><l></l>    <r>vente<s n="vblex"/><s n="pp"/><d/></r></p>
-    <i>noe<t/><d/></i>
     <par n="SN"/>
+    <p><l></l>    <r>vente<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><d/></r></p>
     <par n="ADVL"/>
   </e>
 
@@ -12017,42 +12899,6 @@
     <p><l>ånd<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></l>  <r></r></p>
   </e>
 
-  <e lm="override som Spanias konge" c="som Spanias konge">
-    <i>som<t/><d/></i>
-    <i>Spania<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
-  <e lm="override som Sveriges konge" c="som Sveriges konge">
-    <i>som<t/><d/></i>
-    <i>Sverige<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
-  <e lm="override som Belgias konge" c="som Belgias konge">
-    <i>som<t/><d/></i>
-    <i>Belgia<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
-  <e lm="override som Thailand konge" c="som Thailand konge">
-    <i>som<t/><d/></i>
-    <i>Thailand<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
-  <e lm="override som Jordans konge" c="som Jordans konge">
-    <i>som<t/><d/></i>
-    <i>Jordan<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
-  <e lm="override som Danmark konge" c="som Danmark konge">
-    <i>som<t/><d/></i>
-    <i>Danmark<t/><d/></i>
-    <i>konge<t/><d/></i>
-  </e>
-
   <e lm="Spanias konge -> spanskekongen" c="spanskekongen">
     <p><l>Spania<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
     <p><l></l>                  <r>spanske<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="cmp"/><d/></r></p>
@@ -12071,54 +12917,14 @@
     <p><l>dronning<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l> <r>dronning<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><t/></r></p> <par n="d"/>
   </e>
 
-  <e lm="Spanias konge, np -> kongen av Spania, np" c="kongen av Spania, np">
-    <p><l>Spania<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d space="yes"/></r></p>
-    <p><l></l>  <r>Spania<s n="np"/><s n="cog"/><s n="Aa"/><d space="no"/></r></p>
-    <par n="sent-cm"/>
-    <par n="np"/>
-  </e>
-
-  <e lm="Sveriges konge, np -> kongen av Sverige, np" c="kongen av Sverige, np">
-    <p><l>Sverige<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d space="yes"/></r></p>
-    <p><l></l>  <r>Sverige<s n="np"/><s n="cog"/><s n="Aa"/><d space="no"/></r></p>
-    <par n="sent-cm"/>
-    <par n="np"/>
-  </e>
-
-  <e lm="Jordans konge -> kongen av Jordan" c="kongen av Jordan">
-    <p><l>Jordan<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d/></r></p>
-    <p><l></l>  <r>Jordan<s n="np"/><s n="cog"/><s n="Aa"/><d/></r></p>
-  </e>
-
-  <e lm="Thailands konge -> kongen av Thailand" c="kongen av Thailand">
-    <p><l>Thailand<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d/></r></p>
-    <p><l></l>  <r>Thailand<s n="np"/><s n="cog"/><s n="Aa"/><d/></r></p>
-  </e>
-
-  <e lm="Danmarks konge -> kongen av Danmark" c="kongen av Danmark">
-    <p><l>Danmark<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d/></r></p>
-    <p><l></l>  <r>Danmark<s n="np"/><s n="cog"/><s n="Aa"/><d/></r></p>
-  </e>
-
-  <e lm="Belgias konge -> kongen av Belgia" c="kogen av Belgia">
-    <p><l>Belgia<s n="np"/><t/><s n="gen"/><t/><d/></l> <r></r></p>
-    <par n="kongeleg"/>
-    <p><l></l>  <r>av<s n="pr"/><s n="aa"/><d/></r></p>
-    <p><l></l>  <r>Belgia<s n="np"/><s n="cog"/><s n="Aa"/><d/></r></p>
-  </e>
 
   <!-- fornærmede/siktede/tiltalte -->
   <!-- First our overrides, in case "den" already exists: -->
+  <e lm="den samme fornærmede -> den samme fornærmede" c="den same fornærma">
+    <i>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/></i> <par n="d"/>
+    <par n="ANYWORD|"/>
+    <par n="ndef_fornærma/sikta/tiltalte"/> <par n="d"/>
+  </e>
   <e lm="den fornærmede -> den fornærmede" c="den fornærma">
     <i>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/></i> <par n="d"/>
     <par n="adj"/>
@@ -12457,6 +13263,15 @@
       <par n="SN|np|prn"/>
     </e>
 
+    <e lm="skyldes stort og langvarig forbruk -> kjem av stort og langvarig forbruk" c="kjem av stort og langvarig forbruk">
+      <p><l>skyldes<s n="vblex"/><s n="pstv"/></l>       <r>komme<s n="vblex"/></r></p>  <i><t/><d/></i>
+      <p><l></l>                <r>av<s n="pr"/><d/></r></p>
+      <par n="adj|adv"/>
+      <i><w/><s n="cnjcoo"/><t/></i>  <par n="d"/>
+      <par n="adj"/>
+      <par n="SN|np|prn"/>
+    </e>
+
     <e lm="ADV + skyldes @subj -> ADV + kommer @subj av" c="ADV + kjem @subj av">
       <i><w/><s n="adv"/></i>  <par n="d"/>
       <p><l>skyldes<s n="vblex"/><s n="pstv"/></l>       <r>komme<s n="vblex"/></r></p>  <i><t/><d/></i>
@@ -12774,7 +13589,6 @@
   </e>
 
   <e lm="er landets rikeste -> er den rikeste i landet" c="sup utan substantiv etter">
-    <i>være<t/><d/></i>
     <p><l>land<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/><s n="gen"/><t/></l>           <r></r></p> <par n="d:"/>
     <p><l></l>                  <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><d/></r></p>
     <par n="adj.ord|sup+adv"/>
@@ -12810,20 +13624,10 @@
     <i><w/><s n="np"/><s n="top"/><t/><d/></i>
   </e>
 
-  <e lm="stridens kjerne -> det striden står om" c="det striden står om">
-    <p><l>strid<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="gen"/></l>  <r>den<s n="prn"/><s n="pers"/><s n="p3"/><s n="nt"/><s n="sg"/><s n="acc"/></r></p> <par n="d"/>
-    <p><l>kjerne<s n="n"/><t/></l>  <r></r></p> <par n="d:"/>
-    <p><l></l>    <r>strid<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
-    <p><l></l>    <r>stå<s n="vblex"/><s n="pres"/><d/></r></p>
-    <p><l></l>    <r>om<s n="pr"/><d/></r></p>
-  </e>
-
-  <e lm="stridens eple -> det striden står om" c="det striden står om">
-    <p><l>strid<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="gen"/></l>  <r>den<s n="prn"/><s n="pers"/><s n="p3"/><s n="nt"/><s n="sg"/><s n="acc"/></r></p> <par n="d"/>
-    <p><l>eple<s n="n"/><t/></l>  <r></r></p> <par n="d:"/>
-    <p><l></l>    <r>strid<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
-    <p><l></l>    <r>stå<s n="vblex"/><s n="pres"/><d/></r></p>
-    <p><l></l>    <r>om<s n="pr"/><d/></r></p>
+  <e lm="landets krigføring i Gaza -> krigføringen i Gaza" c="krigføringa i Gaza">    
+    <p><l>land<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/><s n="gen"/><t/></l>           <r></r></p> <par n="d:"/>
+    <par n="landets-ord"/>
+    <i><w/><s n="pr"/><t/><d/></i>
   </e>
 
   <e lm="befinne seg ved en korsvei -> stå ved en korsvei" c="stå ved ein korsveg">
@@ -13882,6 +14686,31 @@
     </e>
 
 
+    <e lm="et stort antall → mange" c="mange">
+      <p><l>en<t/><s n="aa"/><t/><d/></l> <r></r></p>
+      <par n="stort|høyt:"/> <par n="d:"/>
+      <p><l>antall<t/><d/></l>   <r></r> </p>
+      <p><l></l> <r>mange<s n="adj"/><s n="sint"/><s n="pst"/><s n="un"/><s n="pl"/><s n="ind"/><s n="aa"/></r></p>
+    </e>
+    <e lm="Et stort antall → Mange" c="Mange">
+      <p><l>en<t/><s n="Aa"/><t/><d/></l> <r></r></p>
+      <par n="stort|høyt:"/> <par n="d:"/>
+      <p><l>antall<t/><d/></l>   <r></r> </p>
+      <p><l></l> <r>mange<s n="adj"/><s n="sint"/><s n="pst"/><s n="un"/><s n="pl"/><s n="ind"/><s n="Aa"/></r></p>
+    </e>
+    <e lm="totalt antall → det samlede antallet" c="det samla talet">
+      <p><l>total<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/><d/></l> <r></r></p>
+      <p><l></l> <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><s n="aa"/><s n="@det→"/><d/></r></p>
+      <p><l></l> <r>samle<s n="adj"/><s n="pp"/><s n="sg"/><s n="def"/><s n="aa"/><s n="@adj→"/><d/></r></p>
+      <i>antall<t/></i> <p><l><s n="ind"/></l>   <r><s n="def"/></r> </p> <i><t/><d/></i>
+    </e>
+
+    <e c="et/eit antall/* på/på → ∅">
+      <p><l>en<t/><d/></l>        <r></r></p>
+      <p><l>antall<t/><t/><d/></l>   <r></r> </p>
+      <p><l>på<t/><d/></l>         <r></r> </p>
+    </e>
+
     <e lm="konj + et økende antall -> konj + stadig fleire" c="konj + stadig fleire">
       <par n="sent-cm|cnjcoo|cnjsub"/>
       <p><l>en<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/><t/></l>  <r></r></p>  <par n="d:"/>
@@ -14078,6 +14907,20 @@
       <i>mange<s n="adj"/><s n="sint"/><s n="comp"/><s n="un"/><s n="sp"/><t/></i>  <par n="d"/>
     </e> 
 
+    <!-- sommerens OL → sommer-OL osb. -->
+    <e lm="sommerens OL → sommer-OL" c="sommar-OL">
+      <par n="Årstid-lm"/>
+      <i><s n="n"/><t/><s n="sg"/></i>
+      <p><l><s n="def"/><s n="gen"/></l>  <r><s n="ind"/><s n="cmp"/><s n="guio"/></r></p>
+      <p><l><t/></l>  <r></r></p> <!-- fjern aa/syntakstaggar frå cmp-left -->
+      <i><d/></i>
+      <par n="Meisterskap-lm"/>
+      <i><t/></i>
+      <par n="AA:aa"/>
+      <par n="d"/>
+    </e>
+
+    <!-- årets-reglar -->
 
 <!-- fjorårets-reglar -->
 
@@ -14163,6 +15006,13 @@
       <i>på<s n="pr"/><t/><d/></i>
       <i>grunn<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
       <i>av<s n="pr"/><t/><d/></i>
+    </e>
+
+    <e lm="fjorårets vinter-OL (i Sør-Korea) -> vinter-OL (i Sør-Korea) i fjor" c="avoid 'vinter-OL-et'">
+      <p><l>fjorår<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/><s n="gen"/></l>  <r></r></p>  <par n="d:"/>
+      <par n="vinter-OL"/>
+      <par n="prepledd|empty"/>
+      <p><l></l>                                  <r>i<b/>fjor<s n="adv"/><d/></r></p>
     </e>
 
     <e lm="fjorårets OL-finale (i Berlin) -> OL-finalen (i Berlin) i fjor" c="OL-finalen (i Berlin) i fjor">
@@ -15544,12 +16394,6 @@
   <p><l></l>                                  <r>inn<s n="pr"/><d/></r></p>
 </e>
 
-<e lm="jordens atmosfære og klima -> jordens atmosfære og klima" c="(klimaet og atmosfæren på jorda)"> <!-- la stå -->
-  <i><w/><s n="n"/><t/><s n="def"/><s n="gen"/></i> <par n="aa_d"/>
-  <i><w/><s n="n"/><t/><s n="ind"/></i> <par n="aa_d"/>
-  <par n="og|eller"/>
-  <i><w/><s n="n"/><t/><s n="ind"/></i> <par n="aa_d"/>
-</e>
 
 <!-- cmp; genitiv til samanskriving -->
 <e lm="politiets arrest -> politiarresten" c="politiarresten">
@@ -15707,6 +16551,14 @@
   <p><l>innbygger<s n="n"/><t/><s n="pl"/><s n="ind"/><t/></l>           <r></r></p> <par n="d:"/>
 </e>
 
+<e lm="Hongkongs myndigheter -> myndighetene i Berlin" c="styresmaktene i Berlin" w="2.0">
+  <p><l></l>                   <r>myndighet<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
+  <p><l></l>                   <r>i<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="np"/><t/></i>
+  <p><l><t/><s n="gen"/></l>        <r><t/></r></p>  <par n="d"/>
+  <p><l>myndighet<s n="n"/><t/><s n="pl"/><s n="ind"/><t/></l>           <r></r></p> <par n="d:"/>
+</e>
+
 <e lm="Sri Lankas innbyggere -> innbyggerne på Sri Lanka" c="innbyggjarane på Sri Lanka" w="1.0">
   <p><l></l>                   <r>innbygger<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
   <p><l></l>                   <r>på<s n="pr"/><s n="aa"/><d/></r></p>
@@ -15787,6 +16639,95 @@
   <p><l><t/><s n="pl"/><s n="ind"/></l>                   <r><t/><s n="pl"/><s n="def"/></r></p> <par n="d"/>
   <p><l></l>                                   <r>til<s n="pr"/><s n="aa"/><d/></r></p>
   <p><l></l>                                   <r>vedkomme<s n="adj"/><s n="pprs"/><s n="aa"/><d/></r></p>
+</e>
+
+
+
+ <e c="Giftinformasjonens styrke -> Giftinformasjonen sin styrke">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="m"/><s n="sg"/><d/></r></p>
+        <i><w/><s n="n"/><s n="m"/><s n="sg"/><t/><d/></i>
+  </e>
+
+
+   <e c="Giftinformasjonens stykke -> Giftinformasjonen sitt stykke">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="nt"/><s n="sg"/><d/></r></p>
+        <i><w/><s n="n"/><s n="nt"/><s n="sg"/><t/><d/></i>
+  </e>
+
+
+   <e c="Giftinformasjonens rolle -> Giftinformasjonen si rolle">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="f"/><s n="sg"/><d/></r></p>
+        <i><w/><s n="n"/><s n="f"/><s n="sg"/><t/><d/></i>
+  </e>
+
+
+     <e c="Giftinformasjonens kant -> Giftinformasjonen sine kantar">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="un"/><s n="pl"/><d/></r></p>
+        <i><w/><s n="n"/><s n="m"/><s n="pl"/><t/><d/></i>
+  </e>
+
+
+     <e c="Giftinformasjonens roller -> Giftinformasjonen sine roller">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="un"/><s n="pl"/><d/></r></p>
+        <i><w/><s n="n"/><s n="f"/><s n="pl"/><t/><d/></i>
+  </e>
+
+
+     <e c="Giftinformasjonens stykker -> Giftinformasjonen sine stykke">
+        <i>Giftinformasjonen<s n="np"/><t/></i>
+        <p><l><s n="gen"/><s n="Aa"/></l> <r></r></p>  <par n="d"/>
+        <p><l></l> <r>sin<s n="det"/><s n="pos"/><s n="un"/><s n="pl"/><d/></r></p>
+        <i><w/><s n="n"/><s n="nt"/><s n="pl"/><t/><d/></i>
+  </e>
+
+<e lm="de siste dagers bråk -> bråket dei siste dagane" c="bråket dei siste dagane">
+  <p><l>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><t/></l>             <r></r></p> <par n="d:"/>
+  <p><l>sist<s n="adj"/><t/><s n="def"/></l>             <r></r></p> <par n="d:"/> 
+  <p><l>dag<s n="n"/><s n="m"/><s n="pl"/><s n="ind"/><s n="gen"/><t/></l>             <r></r></p> <par n="d:"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>                   <r><t/><s n="sg"/><s n="def"/></r></p> <par n="d"/>  <p><l></l>                                   <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>sist<s n="adj"/><s n="sint"/><s n="sup"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>dag<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="de siste ukers bråk -> bråket dei siste vekene" c="bråket dei siste vekene">
+  <p><l>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><t/></l>             <r></r></p> <par n="d:"/>
+  <p><l>sist<s n="adj"/><t/><s n="def"/></l>             <r></r></p> <par n="d:"/> 
+  <p><l>uke<s n="n"/><s n="m"/><s n="pl"/><s n="ind"/><s n="gen"/><t/></l>             <r></r></p> <par n="d:"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>                   <r><t/><s n="sg"/><s n="def"/></r></p> <par n="d"/>  <p><l></l>                                   <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>sist<s n="adj"/><s n="sint"/><s n="sup"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>uke<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="de siste måneders bråk -> bråket dei siste månadene" c="bråket dei siste månadene">
+  <p><l>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><t/></l>             <r></r></p> <par n="d:"/>
+  <p><l>sist<s n="adj"/><t/><s n="def"/></l>             <r></r></p> <par n="d:"/> 
+  <p><l>måned<s n="n"/><s n="m"/><s n="pl"/><s n="ind"/><s n="gen"/><t/></l>             <r></r></p> <par n="d:"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>                   <r><t/><s n="sg"/><s n="def"/></r></p> <par n="d"/>  <p><l></l>                                   <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>sist<s n="adj"/><s n="sint"/><s n="sup"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>måned<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="de siste års bråk -> bråket dei siste åra" c="bråket dei siste åra">
+  <p><l>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><t/></l>             <r></r></p> <par n="d:"/>
+  <p><l>sist<s n="adj"/><t/><s n="def"/></l>             <r></r></p> <par n="d:"/> 
+  <p><l>år<s n="n"/><s n="nt"/><s n="pl"/><s n="ind"/><s n="gen"/><t/></l>             <r></r></p> <par n="d:"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>                   <r><t/><s n="sg"/><s n="def"/></r></p> <par n="d"/>  <p><l></l>                                   <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>sist<s n="adj"/><s n="sint"/><s n="sup"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>år<s n="n"/><s n="nt"/><s n="pl"/><s n="def"/><s n="aa"/><d/></r></p>
 </e>
 
 <e lm="med pakkeforløp menes -> med pakkeforløp sikter man til" c="med pakkeforløp siktar ein til">
@@ -16376,18 +17317,19 @@
 </e>
 
 <!-- *.ind, see LRX -->
-<e lm="ha/gi/få + muligheten til → ha/gi/få + høve til" c="ha/gi/få + høve til">
+<e lm="ha/gi/få + muligheten til → ha/gi/få + høve til" c="ha/gi/få + høve til (def→ind)">
   <par n="ha|gi|få"/>
   <par n="ANYWORDx6|empty"/>
   <p><l>mulighet<s n="n"/><t/><s n="sg"/><s n="def"/></l>         <r>høve<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/></r></p> <i><t/><d/></i>
-  <i>til<s n="pr"/><t/></i> <par n="d"/>
+  <i>til<t/></i> <par n="d"/>
 </e>
 
-<e lm="benytte + muligheten til → benytte + høvet til" c="nytte + høvet til">
-  <i>benytte<t/><d/></i>
-  <par n="ANYWORDx6|empty"/>
-  <p><l>mulighet<s n="n"/><t/><s n="sg"/><s n="def"/></l>         <r>høve<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/></r></p> <i><t/><d/></i>
-  <i>til<s n="pr"/><t/></i> <par n="d"/>
+<e lm="som benyttes ikke → som blir benyttet, " c="som blir nytta, ">
+  <i>som<t/><d/></i>
+  <i>benytte<s n="vblex"/><s n="pres"/><s n="pasv"/><t/><d/></i>
+  <par n="cm-insert"/>
+  <par n="ADV"/>
+  <i><w/><s n="vblex"/><t/><d/></i>
 </e>
 
 <e lm="bistand fra → hjelp fra" c="hjelp frå">
@@ -16663,6 +17605,38 @@
 </e>
 
 <!-- /verdens øyne -->
+
+<e lm="verdens bokdag → den internasjonale bokdagen">
+  <p><l>verd<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="gen"/><t/></l>                <r></r></p>  <par n="d:"/>
+  <p><l></l>                                <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                <r>internasjonal<s n="adj"/><s n="pst"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i>bokdag<s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>         <r><t/><s n="sg"/><s n="def"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="Verdens bokdag → den internasjonale bokdagen">
+  <p><l>Verden<s n="np"/><t/><s n="gen"/><s n="Aa"/><t/></l>                <r></r></p>  <par n="d:"/>
+  <p><l></l>                                <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                <r>internasjonal<s n="adj"/><s n="pst"/><s n="un"/><s n="sp"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i>bokdag<s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><s n="ind"/></l>         <r><t/><s n="sg"/><s n="def"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="verdens bok- og opphavsrettsdag → FNs bok- og opphavsrettsdag">
+  <p><l>verd<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="gen"/><t/></l>                <r></r></p>  <par n="d:"/>
+  <p><l></l>                                <r>FN<s n="np"/><s n="org"/><s n="gen"/><d/></r></p>
+  <i>bok<s n="n"/><t/><s n="sg"/><s n="ind"/><s n="cmp-split"/><t/><d/></i>
+  <i>og<t/><d/></i>
+  <i>opphavsrettsdag<s n="n"/><t/><d/></i>
+</e>
+
+<e lm="Verdens bok- og opphavsrettsdag → FNs bok- og opphavsrettsdag">
+  <p><l>Verden<s n="np"/><t/><s n="gen"/><s n="Aa"/><t/></l>                <r></r></p>  <par n="d:"/>
+  <p><l></l>                                <r>FN<s n="np"/><s n="org"/><s n="gen"/><d/></r></p>
+  <i>bok<s n="n"/><t/><s n="sg"/><s n="ind"/><s n="cmp-split"/><t/><d/></i>
+  <i>og<t/><d/></i>
+  <i>opphavsrettsdag<s n="n"/><t/><d/></i>
+</e>
 
 <e lm="befordre ... i mål → ekspedere ... i mål" c="ekspedere ... i mål">
   <p><l>befordre<s n="vblex"/></l>                <r>ekspedere<s n="vblex"/></r></p>  <i><t/><d/></i>
@@ -17336,6 +18310,34 @@
   <p><l>fortsatt<s n="adv"/></l>             <r>vedholdende<s n="adv"/></r></p>  <i><t/><d/></i>
 </e>
 
+<e lm="som anslås å + inf -> som man regner med + pres" c="som ein reknar med + pres">
+  <i>som<t/><d/></i>
+  <par n="ANYWORDx3|empty"/>
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>trolig<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+</e>
+
+<e lm="cnjsub + anslås å + inf -> trolig + pres" c="truleg + pres">
+  <i><w/><s n="cnjsub"/><t/></i>  <par n="d"/>
+  <par n="ANYWORDx3|empty"/>
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>trolig<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+</e>
+
+<e lm="anslås å + inf -> pres + trolig" c="pres + truleg">
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <p><l></l>              <r>trolig<s n="adv"/><s n="aa"/><d/></r></p>
+  <par n="ANYWORDx8|empty"/>
+</e>
+
 <e lm="Det anslås at → Man går ut fra at" c= "Ein går ut frå at">
   <p><l>den<s n="prn"/><s n="pers"/><s n="p3"/><s n="nt"/><s n="sg"/><s n="nom"/><s n="Aa"/><t/></l>             <r></r></p>    <par n="d:"/>
   <p><l></l>                   <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="Aa"/><d/></r></p>
@@ -17366,6 +18368,29 @@
   <p><l></l>                   <r>med<s n="pr"/><s n="aa"/><d/></r></p>
 </e>
 
+<e lm="anslås det at -> reknar ein med at" w="2.0">
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>regne<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+  <par n="rem:det"/>
+  <i>at<t/><d/></i>
+  <par n="ANYWORD|"/>
+</e>
+
+<e lm="anslås å/at  -> blir anslått å/at" w="2.0">
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>anslå<s n="vblex"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <par n="å|at"/>
+  <par n="ANYWORDx8|empty"/>
+</e>
+
+<e lm="anslås ... å/at -> blir anslått ... å/at" w="2.0">
+  <p><l>anslå<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>                <r>anslå<s n="vblex"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <par n="å|at"/>
+</e>
+
 <e lm="anslå til å → anslå å" c= "anslå å">
   <i>anslå<t/></i>  <par n="d"/>
   <par n="ANYWORD|"/>
@@ -17379,12 +18404,12 @@
   <i>til<t/></i>  <par n="d"/>
 </e>
 
-<e lm="anslå at → regne med at" c= "rekne med at">
+<!--e lm="anslå at → regne med at" c= "rekne med at">
   <p><l>anslå</l>             <r>regne</r></p>  <i><t/><d/></i>
   <par n="ANYWORD|"/>
   <p><l></l>                   <r>med<s n="pr"/><s n="aa"/><d/></r></p>
   <i>at<t/></i>  <par n="d"/>
-</e>
+</e-->
 
 <e lm="politiets innsatsleder NN → innsatsleder i politet NN" c= "innsatsleiar i politet NN">
   <p><l>politi<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/><s n="gen"/></l>             <r></r></p>    <par n="d:"/>
@@ -17615,6 +18640,995 @@
   <par n="SN|np|prn|empty"/>
   <p><l></l>                  <r>føre<s n="pr"/><d/></r></p>
   <p><l></l>                  <r>seg<s n="prn"/><s n="ref"/><s n="p3"/><s n="un"/><s n="sp"/><s n="acc"/><d/></r></p>
+</e>
+
+<e lm="trues de av -> er de truet av" c="er dei trua av">
+  <p><l>true<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>være<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>              <r>true<s n="vblex"/><s n="pp"/><d/></r></p>
+  <i>av<s n="pr"/><t/><d/></i>
+</e>
+
+<e lm="anta + at -> regne med + at" c="rekna med + at">
+  <p><l>anta<s n="vblex"/></l>   <r>regne<s n="vblex"/></r></p> <i><t/><d/></i>
+  <p><l></l>              <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>at<t/><d/></i>
+</e>
+
+<e lm="som antas å + inf -> som man regner med + pres" c="som ein reknar med + pres">
+  <i>som<t/><d/></i>
+  <p><l></l>              <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><d/></r></p>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>regne<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>med<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+</e>
+
+<e lm="antas ikke å + inf -> pres + etter alt å dømme ikke" c="pres + etter alt å dømme ikkje">
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>ikke<s n="adv"/><t/></l>             <r></r></p>  <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>  <par n="d:"/>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <p><l></l>              <r>etter<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>all<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>å<s n="part"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>dømme<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>ikke<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="antas også å + inf -> pres + etter alt å dømme også" c="pres + etter alt å dømme også">
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>også<s n="adv"/><t/></l>             <r></r></p>  <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>  <par n="d:"/>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <p><l></l>              <r>etter<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>all<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>å<s n="part"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>dømme<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>også<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="antas det å + inf -> ser det ut til å + inf" c="ser det ut til å + inf">
+  <p><l></l>              <r>se<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <i><w/><t/><d/></i>
+  <p><l></l>              <r>ut<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>å<s n="part"/><t/><d/></i>
+  <i><w/><s n="vblex"/><s n="inf"/><t/><d/></i>
+</e>
+
+<e lm="antas det å + inf -> ser ut til å + inf" c="ikkje ser ut til å + inf">
+  <i>ikke<t/><d/></i>
+  <p><l></l>              <r>se<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>ut<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <i>å<s n="part"/><t/><d/></i>
+  <i><w/><s n="vblex"/><s n="inf"/><t/><d/></i>
+</e>
+
+<e lm="om det antas å foreligge -> om det kan foreligge" c="om det kan liggje føre">
+  <i>om<t/><d/></i>
+  <i>den<s n="det"/><s n="dem"/><s n="nt"/><t/><d/></i>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>kunne<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <i>foreligge<s n="vblex"/><s n="inf"/><t/><d/></i>
+</e>
+
+<e lm="hvorfor det antas å foreligge -> hvorfor man går ut fra at det foreligger" c="kvifor ein går ut frå at det ligg føre"> <!-- også "hvis ikke det antas å foreligge", "så lenge det antas å foreligge" o.l. -->
+  <i><w/><s n="adv"/><t/><d/></i>
+  <p><l>den<s n="det"/><s n="dem"/><s n="nt"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>gå<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>ut<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>fra<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>at<s n="cnjsub"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><s n="expl"/><s n="aa"/><d/></r></p>
+  <p><l>foreligge<s n="vblex"/><s n="inf"/></l>  <r>foreligge<s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+</e>
+
+<e lm="dersom det antas å foreligge -> dersom man går ut fra at det foreligger" c="dersom ein går ut frå at det ligg føre">
+  <i><w/><s n="cnjsub"/><t/><d/></i>
+  <p><l>den<s n="det"/><s n="dem"/><s n="nt"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>              <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>gå<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>ut<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>fra<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>at<s n="cnjsub"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><s n="expl"/><s n="aa"/><d/></r></p>
+  <p><l>foreligge<s n="vblex"/><s n="inf"/></l>  <r>foreligge<s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+</e>
+
+<e lm="antas å + inf -> pres + etter alt å dømme" c="pres + etter alt å dømme">
+  <p><l>anta<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>å<s n="part"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l><w/><s n="vblex"/><s n="inf"/></l>  <r><w/><s n="vblex"/><s n="pres"/></r></p>  <i><t/><d/></i>
+  <p><l></l>              <r>etter<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>all<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>å<s n="part"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>dømme<s n="vblex"/><s n="inf"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="Stortingets presidentskap -> presidentskapet i Stortinget">
+  <p><l>Stortinget<s n="np"/><s n="org"/><s n="nt"/><s n="gen"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <i>presidentskap<s n="n"/><t/></i>
+  <p><l><t/><s n="ind"/></l>                   <r><t/><s n="def"/></r></p>  <par n="d"/>
+  <p><l></l>              <r>i<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>Stortinget<s n="np"/><s n="org"/><s n="nt"/><s n="Aa"/><d/></r></p>
+</e>
+
+<e lm="Stortingets (x- og) *komité -> (x- og) *komiteen på Stortinget">
+  <p><l>Stortinget<s n="np"/><s n="org"/><s n="nt"/><s n="gen"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <par n="stortingskomité"/>
+  <p><l><t/><s n="ind"/></l>                   <r><t/><s n="def"/></r></p>  <par n="d"/>
+  <p><l></l>              <r>på<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>              <r>Stortinget<s n="np"/><s n="org"/><s n="nt"/><s n="Aa"/><d/></r></p>
+</e>
+
+<e lm="redegjøre (...) for X om → greie (...) ut for X om " c="greie (...) ut for X om">
+  <p><l>redegjøre</l>         <r>greie</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <i>for<t/><d/></i>
+  <par n="SN|np|prn|empty"/>
+  <i>om<t/><d/></i>
+</e>
+
+<e lm="redegjøre (...) for → gjøre (...) greie for" c="gjere (...) greie for">
+  <p><l>redegjøre</l>         <r>gjøre</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l></l>                <r>greie<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>for<t/><d/></i>
+</e>
+
+<e lm="redegjøre (...) om → greie (...) ut" c="greie (...) ut om">
+  <p><l>redegjøre</l>         <r>greie</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <i>om<t/><d/></i>
+</e>
+
+<e lm="redegjøre for Stortinget → greie ut for Stortinget" c="forklare seg for Stortinget">
+  <p><l>redegjøre</l>         <r>greie</r></p> <i><t/><d/></i>
+  <p><l></l>                 <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <i>for<t/><d/></i>
+  <i>Stortinget<t/><d/></i>
+</e>
+
+<e lm="ta rede på + prep → finne ut + prep"> <!-- jf. holde/ha/få rede på -> halde/ha/få greie på -->
+  <p><l>ta</l>         <r>finne</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l>rede<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>på<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="pr"/><t/><d/></i>
+</e>
+
+<e lm="ta rede på + prep → finne ut + prep"> <!-- jf. holde/ha/få rede på -> halde/ha/få greie på -->
+  <p><l>ta</l>         <r>finne</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l>rede<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>på<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="pr"/><t/><d/></i>
+</e>
+
+<e lm="ta rede på + spørjeord → finne ut + spørjeord">
+  <p><l>ta</l>         <r>finne</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l>rede<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>på<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <par n="spørjeord"/>
+</e>
+
+<e lm="ta rede på → finne ut av">
+  <p><l>ta</l>         <r>finne</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l>rede<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>på<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>ut<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>av<s n="pr"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="bortfalle → falle bort">
+  <p><l>bortfalle</l>         <r>falle</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SN|np|prn|empty"/>
+  <p><l></l>                <r>bort<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="stilles (...) til disposisjon → blir (...) stilt til disposisjon">
+  <p><l>stille<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>stille<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>til<t/><d/></i>
+  <i>disposisjon<t/><d/></i>
+</e>
+
+<e lm="stilles (...) til rådighet → blir (...) stilt til rådighet" c="blir (...) stilt til rådvelde">
+  <p><l>stille<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>stille<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>til<t/><d/></i>
+  <i>rådighet<t/><d/></i>
+</e>
+
+<e lm="ha oversendt → ha oversendt">
+  <i>ha<s n="vblex"/><t/><d/></i>
+  <p><l>oversende<s n="vblex"/><s n="pp"/></l>         <r>oversende<s n="vblex"/><s n="pp"/></r></p> <i><t/><d/></i>
+</e>
+
+<e lm="være/bli + oversendt til → være/bli + sendt over til">
+  <par n="være/bli"/>
+  <par n="ANYWORDx6|empty"/>
+  <p><l>oversende<s n="adj"/></l>         <r>sende<s n="adj"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>over<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>til<t/><d/></i>
+</e>
+
+<e lm="oversende X et dokument → sende X et dokument">
+  <p><l>oversende<s n="vblex"/></l>         <r>sende<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="SN|np|prn|det|empty"/>
+  <i>en<t/><d/></i>
+  <i><w/><s n="n"/><t/><d/></i>
+</e>
+
+<e lm="oversende til X → sende over til X">
+  <p><l>oversende<s n="vblex"/></l>         <r>sende<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="SN|np|prn|det|empty"/>
+  <p><l></l>                <r>over<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>til<t/><d/></i>
+  <par n="SN|np|prn"/>
+</e>
+
+<e lm="oversende → sende over">
+  <p><l>oversende<s n="vblex"/></l>         <r>sende<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <par n="SUBJ|prn|det|empty"/>
+  <p><l></l>                <r>over<s n="pr"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="til/å tross for/av at → selv om" c="sjølv om">
+  <p><l><w/><s n="pr"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>tross<s n="pr"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l><w/><s n="pr"/><t/></l>             <r></r></p>    <par n="d:"/>
+  <par n="at2selv_om"/>
+</e>
+
+<e lm="til tross for → trass i">
+  <p><l>til<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>tross<s n="pr"/></l>         <r>trass<b/>i<s n="pr"/></r></p> <i><t/><d/></i>
+  <p><l>for<t/></l>             <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="på tross av → trass i">
+  <p><l>på<t/></l>             <r></r></p>    <par n="d:"/>
+  <p><l>tross<s n="pr"/></l>         <r>trass<b/>i<s n="pr"/></r></p> <i><t/><d/></i>
+  <p><l>av<t/></l>             <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="omtales videre som → blir videre omtalt som">
+  <p><l>omtale<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <i><w/><s n="adv"/><s n="aa"/><t/><d/></i>
+  <p><l></l>                <r>omtale<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>som<t/><d/></i>
+</e>
+
+<e lm="beskrives videre som → blir videre beskrevet som">
+  <p><l>beskrive<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <i><w/><s n="adv"/><s n="aa"/><t/><d/></i>
+  <p><l></l>                <r>beskrive<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>som<t/><d/></i>
+</e>
+
+<e lm="lokale oversvømmelser → lokale flommer" c="lokale flaumar">
+  <i><w/><s n="adj"/><t/><s n="pl"/><t/><d/></i>
+  <p><l>oversvømmelse<s n="n"/><s n="m"/><s n="pl"/></l>   <r>flom<s n="n"/><s n="m"/><s n="pl"/></r></p> <i><t/><d/></i>
+</e>
+
+<e lm="de lokale oversvømmelsene → de lokale flommene" c="dei lokale flaumane">
+  <p><l>oversvømmelse<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><t/></l>   <r>flaum<s n="n"/><s n="m"/><s n="pl"/><s n="def"/><t/></r></p> <i><t/><d/></i>
+</e>
+
+<e lm="tas ut → blir teken ut">
+  <p><l>ta<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>ta<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>ut<t/><d/></i>
+</e>
+
+<e lm="vedlikeholde X → holde X ved like">
+  <p><l>vedlikeholde<s n="vblex"/></l>         <r>holde<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="SN|np|prn|det"/>
+  <p><l></l>                <r>ved<b/>like<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="pågå for fullt → gå føre seg for fullt">
+  <p><l>pågå<s n="vblex"/></l>   <r>gå<s n="vblex"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>føre<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>seg<s n="prn"/><s n="ref"/><s n="p3"/><s n="un"/><s n="sp"/><s n="acc"/><s n="aa"/><d/></r></p>
+  <i>for<b/>fullt<t/><d/></i>
+</e>
+
+<e lm="folk beveger seg mer. -> folk rører mer på seg." c="folk rører meir på seg.">
+  <p><l>bevege</l>         <r>røre</r></p> <i><t/><d/></i>
+  <p><l>seg<t/></l>        <r></r></p>    <par n="d:"/>
+  <i><w/><s n="adj"/><s n="sint"/><s n="comp"/><t/><d/></i>
+  <p><l></l>               <r>på<s n="pr"/><d space="yes"/></r></p>
+  <p><l></l>               <r>seg<s n="prn"/><s n="ref"/><s n="p3"/><s n="un"/><s n="sp"/><s n="acc"/><d space="no"/></r></p>
+  <par n="cm|sent"/>
+</e>
+
+<e lm="folk beveger seg mer og -> folk rører mer på seg og" c="folk rører meir på seg og">
+  <p><l>bevege</l>         <r>røre</r></p> <i><t/><d/></i>
+  <p><l>seg<t/></l>        <r></r></p>    <par n="d:"/>
+  <i><w/><s n="adj"/><s n="sint"/><s n="comp"/><t/><d/></i>
+  <p><l></l>               <r>på<s n="pr"/><d/></r></p>
+  <p><l></l>               <r>seg<s n="prn"/><s n="ref"/><s n="p3"/><s n="un"/><s n="sp"/><s n="acc"/><d/></r></p>
+  <par n="bevege-seg-ord"/>
+</e>
+
+<e lm="bevege seg mot -> nærme seg" c="nærme seg">
+  <p><l>bevege</l>         <r>nærme</r></p> <i><t/><d/></i>
+  <par n="refl-prn"/>
+  <p><l>mot<t/></l>        <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="beveger stormen seg mot -> flytter stormen seg mot" c="flyttar stormen seg mot">
+  <p><l>bevege</l>         <r>flytte</r></p> <i><t/><d/></i>
+  <par n="bevege-seg-ord-III|empty"/>
+  <par n="refl-prn"/>
+  <i>mot<s n="pr"/><t/><d/></i>
+</e>
+
+<e lm="bevege seg østover -> flytte seg østover" c="flytte seg austover">
+  <p><l>bevege</l>         <r>flytte</r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <par n="refl-prn"/>
+  <par n="bevege-seg-ord-II"/>
+</e>
+
+<e lm="Orkdal alders- og sykehjem -> Orkdal alders- og sjukeheim">
+  <i><w/><s n="np"/><t/></i>  <par n="d"/>
+  <i><w/>hjem<s n="n"/><t/></i>
+  <p><l><s n="pl"/><s n="ind"/></l> <r><s n="sg"/><s n="ind"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="i våres -> i vår">
+  <i>i<s n="pr"/><t/></i>  <par n="d"/>
+  <p><l>våres<s n="vblex"/><s n="pstv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>vår<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><d/></r></p>
+</e>
+
+<e lm="ved fakultet for -> ved fakultetet for"> <!-- jf. det juridiske fakultetet -->
+  <i><w/><s n="pr"/><t/></i>  <par n="d"/>
+  <i>fakultet<s n="n"/><t/></i>
+  <p><l><s n="sg"/><s n="ind"/></l> <r><s n="sg"/><s n="def"/></r></p>  <par n="d"/>
+  <i>for<s n="pr"/><t/></i>  <par n="d"/>
+</e>
+<e lm="Fakultet for -> fakultetet for">
+  <p><l>Fakultet<s n="np"/><s n="cgguess"/></l>         <r>fakultet<s n="n"/><s n="nt"/><s n="sg"/><s n="def"/><s n="aa"/></r></p> <i><t/><d/></i>
+  <i>for<s n="pr"/><t/></i>  <par n="d"/>
+</e>
+
+<!-- gen + håndtering av: førebels avgrensa av lange objektledd  -->
+<e lm="regjeringens håndtering av X kan -> måten regjeringen har håndtert X på, kan" c="måten regjeringa har handtert X på, kan">
+  <p><l></l>               <r>måte<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/></i>
+  <p><l><s n="def"/><s n="gen"/></l> <r><s n="def"/></r></p>  <par n="d"/>
+  <p><l>håndtering<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>ha<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>håndtere<s n="vblex"/><s n="pp"/><s n="aa"/><d space="yes"/></r></p>
+  <p><l>av<s n="pr"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <par n="SN"/>
+  <p><l></l>               <r>på<s n="pr"/><s n="aa"/><d space="no"/></r></p>
+  <par n="cm-insert"/>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="Brasils håndtering av X er -> måten Brasil har håndtert X på, er" c="måten Brasil har handtert X på, er">
+  <p><l></l>               <r>måte<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
+  <i><w/><s n="np"/><t/></i>
+  <p><l><s n="gen"/></l> <r></r></p>  <par n="d"/>
+  <p><l>håndtering<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>ha<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>håndtere<s n="vblex"/><s n="pp"/><s n="aa"/><d space="yes"/></r></p>
+  <p><l>av<s n="pr"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <par n="SN"/>
+  <p><l></l>               <r>på<s n="pr"/><s n="aa"/><d space="no"/></r></p>
+  <par n="cm-insert"/>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="regjeringens håndtering av X. -> måten regjeringen har håndtert X på." c="måten regjeringa har handtert X på.">
+  <p><l></l>               <r>måte<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/></i>
+  <p><l><s n="def"/><s n="gen"/></l> <r><s n="def"/></r></p>  <par n="d"/>
+  <p><l>håndtering<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>ha<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>håndtere<s n="vblex"/><s n="pp"/><s n="aa"/><d space="yes"/></r></p>
+  <p><l>av<s n="pr"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <par n="SN"/>
+  <p><l></l>               <r>på<s n="pr"/><s n="aa"/><d space="no"/></r></p>
+  <par n="cm|sent"/>
+</e>
+
+<e lm="Jens Stoltenbergs håndtering av X. -> måten Jens Stoltenberg har håndtert X på." c="måten Jens Stoltenberg har handtert X på.">
+  <p><l></l>               <r>måte<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
+  <i><w/><s n="np"/><t/></i>
+  <p><l><s n="gen"/></l> <r></r></p>  <par n="d"/>
+  <p><l>håndtering<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>ha<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>håndtere<s n="vblex"/><s n="pp"/><s n="aa"/><d space="yes"/></r></p>
+  <p><l>av<s n="pr"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <par n="SN"/>
+  <p><l></l>               <r>på<s n="pr"/><s n="aa"/><d space="no"/></r></p>
+  <par n="cm|sent"/>
+</e>
+<!-- / håndering av -->
+
+<e lm="utbe seg -> be om">
+  <p><l>utbe<s n="vblex"/></l>                                      <r>be<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="rem-refl-prn"/>
+  <par n="alle-tider|empty"/>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="svar utbes -> vi ber om svar">
+  <p><l></l>                                   <r>vi<s n="prn"/><s n="pers"/><s n="p1"/><s n="un"/><s n="pl"/><s n="nom"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>be<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/><s n="aa"/></i>  <par n="d"/>
+  <p><l>utbe<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>        <r></r></p>    <par n="d:"/>
+</e>
+<e lm="Svar utbes -> Vi ber om svar">
+  <p><l></l>                                   <r>vi<s n="prn"/><s n="pers"/><s n="p1"/><s n="un"/><s n="pl"/><s n="nom"/><s n="Aa"/><d/></r></p>
+  <p><l></l>                                   <r>be<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/><s n="aa"/></i>  <par n="d"/>
+  <p><l>utbe<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>        <r></r></p>    <par n="d:"/>
+</e>
+
+<!-- forleden -->
+
+<e lm="her forleden dag -> her om dagen">
+  <i>her<s n="adv"/><t/></i>  <par n="d"/>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>dag<t/></i>
+  <p><l><t/><s n="ind"/></l>         <r><t/><s n="def"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="forleden dag -> her om dagen">
+  <p><l></l>                                   <r>her<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>dag<t/></i>
+  <p><l><t/><s n="ind"/></l>         <r><t/><s n="def"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="her forleden natt -> her en natt" c="her ei natt">
+  <i>her<t/></i>  <par n="d"/>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <par n="morgen-formiddag-ettermiddag-kveld-natt"/>  <par n="d"/>
+</e>
+
+<e lm="forleden natt -> her en natt" c="her ei natt">
+  <p><l></l>                                   <r>her<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <par n="morgen-formiddag-ettermiddag-kveld-natt"/>  <par n="d"/>
+</e>
+
+<e lm="her forleden uke -> her for noen uker siden" c="her for nokre veker sidan"> <!-- substantiv utanom dei over: månad, år -->
+  <i>her<s n="adv"/><t/></i>  <par n="d"/>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>for<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>noe<s n="det"/><s n="qnt"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><t/></l>         <r><t/><s n="pl"/><t/></r></p>  <par n="d"/>
+  <p><l></l>                                   <r>siden<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="forleden uke -> for noen uker siden" c="for nokre veker sidan">
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>for<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>noe<s n="det"/><s n="qnt"/><s n="un"/><s n="pl"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="sg"/><t/></l>         <r><t/><s n="pl"/><t/></r></p>  <par n="d"/>
+  <p><l></l>                                   <r>siden<s n="adv"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="her forleden -> her om dagen"> <!-- Utan annan kontekst, elles (utan "her"): "nylig" -->
+  <i>her<s n="adv"/><t/></i>  <par n="d"/>
+  <p><l>forleden<s n="adv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                                   <r>om<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>                                   <r>dag<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+<!-- END: forleden -->
+
+<e lm="den isrealske regjeringens X -> den israelske regjeringens X">
+  <i>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/></i>  <par n="d"/>
+  <par n="ANYWORD"/>
+  <i>regjering<s n="n"/><t/><s n="def"/><s n="gen"/></i>  <par n="d"/>
+  <par n="ANYWORD"/>
+</e>
+
+
+<e lm="regjeringens foreslåtte X -> den foreslåtte X">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><d/></r></p>
+  <i>foreslå<s n="adj"/><s n="pp"/><s n="sg"/><s n="def"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.mf"/>
+</e>
+<e lm="regjeringens foreslåtte X -> det foreslåtte X">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><d/></r></p>
+  <i>foreslå<s n="adj"/><s n="pp"/><s n="sg"/><s n="def"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.nt"/>
+</e>
+<e lm="regjeringens foreslåtte X -> de foreslåtte X" c="dei foreslåtte X">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><d/></r></p>
+  <i>foreslå<s n="adj"/><s n="pp"/><s n="pl"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.pl"/>
+</e>
+
+
+<e lm="regjeringens nye X er -> den nye X-en til regjeringen er">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.mf"/>
+  <p><l></l>               <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+<e lm="regjeringens nye X er -> det nye X-et til regjeringen er">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.nt"/>
+  <p><l></l>               <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+<e lm="regjeringens nye X er -> de nye X-ene til regjeringen er">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.pl"/>
+  <p><l></l>               <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+
+
+<e lm="regjeringens nye X -> den nye X-en">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="m"/><s n="sg"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.mf"/>
+</e>
+<e lm="regjeringens nye X -> det nye X-et">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.nt"/>
+</e>
+<e lm="regjeringens nye X -> de nye X-ene">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>den<s n="det"/><s n="dem"/><s n="un"/><s n="pl"/><d/></r></p>
+  <i><w/><s n="adj"/><t/></i>  <par n="d"/>
+  <par n="ncmp*.n.ind2def.pl"/>
+</e>
+
+
+<e lm="regjeringens forslag til/om -> forslaget til/om">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord-forslag"/>
+  <p><l><t/><s n="ind"/><t/></l>         <r><t/><s n="def"/><t/></r></p>  <par n="d"/>
+  <i><w/><s n="pr"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="regjeringens forslag -> forslaget fra regjeringen" c="forslaget frå regjeringa">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord-forslag"/>
+  <p><l><t/><s n="ind"/><t/></l>         <r><t/><s n="def"/><t/></r></p>  <par n="d"/>
+  <p><l></l>               <r>fra<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="regjeringens mål er å/at -> regjeringen har som mål å/at">
+  <par n="rem-regjeringens"/>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><d/></r></p>
+  <p><l></l>               <r>ha<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>som<s n="pr"/><s n="aa"/><d/></r></p>
+  <i>mål<s n="n"/><t/></i>  <par n="d"/>
+  <p><l>være<s n="vblex"/><s n="pres"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <par n="å/at"/>
+</e>
+
+<e lm="regjeringens plan om -> planen om">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord-plan"/>
+  <p><l><t/><s n="ind"/><t/></l>         <r><t/><s n="def"/><t/></r></p>  <par n="d"/>
+  <i><w/><s n="pr"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="regjeringens plan -> planen til regjeringen" c="planen til regjeringa">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord-plan"/>
+  <p><l><t/><s n="ind"/><t/></l>         <r><t/><s n="def"/><t/></r></p>  <par n="d"/>
+  <p><l></l>               <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="regjeringens handlingsplan -> handlingsplanen">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord"/>
+  <p><l><t/><s n="ind"/></l> <r><t/><s n="def"/></r></p>  <par n="d"/>
+</e>
+
+<e lm="regjeringens støtteparti(er) -> støttepartiet|ene til regjeringen">
+  <par n="rem-regjeringens"/>
+  <par n="regjeringsord-støtteparti"/>
+  <p><l><t/><s n="ind"/></l> <r><t/><s n="def"/></r></p>  <par n="d"/>
+  <i><w/><s n="np"/><s n="org"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="Regjeringens analyse -> Analysen til regjeringen">
+  <p><l>Regjeringen<s n="np"/><s n="org"/><s n="m"/><s n="gen"/></l>        <r></r></p>    <par n="d:"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="ind"/><t/></l>         <r><t/><s n="def"/><t/></r></p>  <par n="d"/>
+  <p><l></l>               <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l></l>               <r>regjering<s n="n"/><s n="m"/><s n="sg"/><s n="def"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/></i>  <par n="d"/>
+</e>
+
+<e lm="besittes ... av -> blir ... okkupert av">
+  <p><l>besitte<s n="vblex"/><s n="pres"/><s n="pasv"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>               <r>bli<s n="vblex"/><s n="pres"/><s n="aa"/><d/></r></p>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>               <r>okkupere<s n="adj"/><s n="pp"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>av<s n="pr"/><t/></i>
+</e>
+
+<e lm="spilles klubbens oppgjør mot LSK uten tilskuere → blir oppgjeret til klubben mot LSK spelt utan tilskodarar">
+  <p><l>spille<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>spille<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>uten<t/><d/></i>
+</e>
+
+<e lm="med (stor) høytidelighet → med (stor) høytid">
+  <i>med<t/><d/></i>
+  <par n="adj|empty"/>
+  <p><l>høytidelighet<s n="n"/></l>   <r>høytid<s n="n"/></r></p> <i><t/><d/></i>
+</e>
+
+<e lm="på elevenes vegne → på vegne av elevene">
+  <i>på<t/><d/></i>
+  <p><l></l>                <r>vegne<s n="n"/><s n="mf"/><s n="sp"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>av<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="def"/><s n="gen"/></l>         <r><t/><s n="def"/></r></p>  <par n="d"/>
+  <p><l>vegne<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="på Tysklands vegne → på vegne av Tyskland">
+  <i>på<t/><d/></i>
+  <p><l></l>                <r>vegne<s n="n"/><s n="mf"/><s n="sp"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>av<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="np"/><t/></i>
+  <p><l><t/><s n="gen"/></l>         <r><t/></r></p>  <par n="d"/>
+  <p><l>vegne<s n="n"/><t/></l>        <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="statistiske byrå → statistikkbyrå">
+  <p><l>statistisk<s n="adj"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>statistikk<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="cmp"/><s n="aa"/><d/></r></p>
+  <i>byrå<s n="n"/><t/><d/></i>
+</e>
+
+<e lm="da slås Vy og Flytoget sammen → da blir Vy og Flytoget slått sammen">
+  <p><l>slå<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>slå<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>sammen<t/><d/></i>
+</e>
+
+<e lm="Boeing permitterer stort antall ansatte → Boeing permitterer mange ansatte" c="tittelforenkling">
+  <i><w/><s n="vblex"/><t/><d/></i>
+  <p><l>stor<s n="adj"/><s n="sint"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l>antall<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>        <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>mange<s n="adj"/><s n="sint"/><s n="pst"/><s n="un"/><s n="pl"/><s n="ind"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="holdes i hevd → blir holdt i hevd" c="blir halden i hevd">
+  <p><l>holde<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx6|empty"/>
+  <p><l></l>                <r>holde<s n="adj"/><s n="pp"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <i>i<b/>hevd<t/><d/></i>
+</e>
+
+<e lm="ha + forekommet + subst → ha + vært tilfeller av + subst" c="ha + vore tilfelle av + subst">
+  <i>ha<s n="vblex"/><t/><d/></i>
+  <p><l>forekomme<s n="vblex"/><s n="pp"/></l>   <r>være<s n="vblex"/><s n="pp"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>tilfelle<s n="n"/><s n="nt"/><s n="pl"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>av<s n="pr"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="n"/><t/><d/></i>
+</e>
+
+<e lm="hvordan å → hvordan man kan">
+  <i>hvordan<s n="adv"/></i><par n="d"/> <!-- merk: ikkje cnjsub, «hvordan (det) å» -->
+  <p><l>å<t/><d/></l>        <r></r></p>
+  <p><l></l> <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><s n="@subj"/><d/></r></p>
+  <p><l></l> <r>kunne<s n="vblex"/><s n="pres"/><s n="aa"/><s n="@fv"/><d/></r></p>
+</e>
+<e lm="hva å → hva man kan">
+  <i>hva<s n="adv"/></i><par n="d"/> <!-- merk: ikkje prn, «hva å være perfekt er» -->
+  <p><l>å<t/><d/></l>        <r></r></p>
+  <p><l></l> <r>man<s n="prn"/><s n="pers"/><s n="p3"/><s n="un"/><s n="sg"/><s n="nom"/><s n="aa"/><s n="@subj"/><d/></r></p>
+  <p><l></l> <r>kunne<s n="vblex"/><s n="pres"/><s n="aa"/><s n="@fv"/><d/></r></p>
+</e>
+
+<e lm="i sin egen rett → i seg selv"> <!-- ein sjeldan gong snakk om matrett, men vanlegvis ikkje -->
+  <i>i<t/><d/></i>
+  <p><l>sin<t/><d/></l>        <r></r></p>
+  <p><l>egen<t/><d/></l>        <r></r></p>
+  <p><l>rett<t/><d/></l>        <r></r></p>
+  <p><l></l> <r>seg<b/>selv<s n="prn"/><s n="ref"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="acc"/><s n="aa"/><s n="@←p-utfyll"/><d/></r></p>
+</e>
+<e lm="i min mening → etter min mening">
+  <p><l>i</l> <r>etter</r></p>
+  <i><t/><d/></i>
+  <i>min<t/><d/></i>
+  <i>mening<t/><d/></i>
+</e>
+<e lm="på en livstid → på et helt liv">
+  <i>på</i>
+  <i><t/><d/></i>
+  <p><l>en<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/></l> <r>en<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/></r></p>
+  <i><t/><d/></i>
+  <p><l></l> <r>hel<s n="adj"/><s n="sint"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><s n="@adj→"/><d/></r></p>
+  <p><l>livstid<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="aa"/><t/></l> <r>liv<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><s n="@←p-utfyll"/><d/></r></p>
+</e>
+
+<e lm="forefinnes → foreligge" c="liggje føre">
+  <p><l>forefinnes<s n="vblex"/><s n="pstv"/></l>   <r>foreligge<s n="vblex"/></r></p> <i><t/><d/></i>
+</e>
+
+<e lm="enhver kritikk -> all kritikk">
+  <p><l>enhver<s n="det"/><s n="qnt"/></l>   <r>all<s n="det"/><s n="qnt"/></r></p> <i><t/><d/></i>
+  <par n="enhver-ord"/>
+</e>
+
+<e lm="ingen forbrytelse -> ikke noen forbrytelse" c="ikkje noko brotsverk">
+  <p><l>ingen<s n="det"/><s n="qnt"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>ikke<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>noe<s n="det"/><s n="qnt"/><s n="m"/><s n="sg"/><s n="aa"/><d/></r></p>
+  <i>forbrytelse<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
+</e>
+
+<e lm="kan tilskrives -> kan knyttes til" c="kan knytast til">
+  <par n="modal"/>
+  <par n="ANYWORDx6|empty"/>
+  <p><l>tilskrive<s n="vblex"/><s n="inf"/><s n="pasv"/></l>   <r>knyte<s n="vblex"/><s n="inf"/><s n="pasv"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="tilskrives -> blir knyttet til">
+  <p><l>tilskrive<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>knyte<s n="vblex"/><s n="pres"/><s n="pasv"/></r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <p><l></l>                <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+</e>
+
+<e lm="(vite) utmerket godt -> (vite) så altfor godt">
+  <p><l>utmerket<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>så<s n="adv"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>altfor<s n="adv"/><s n="aa"/><d/></r></p>
+  <i>godt<t/><d/></i>
+</e>
+
+<e lm="helt utmerket godt + vblex -> godt + vblex" c="godt gjerast">
+  <p><l>hel<s n="adj"/><s n="sint"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l>utmerket<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i>god<t/><d/></i>
+  <i><w/><s n="vblex"/><t/><d/></i>
+</e>
+<e lm="utmerket + vblex -> godt + vblex" c="godt gjerast">
+  <p><l>utmerket<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i>god<t/><d/></i>
+  <i><w/><s n="vblex"/><t/><d/></i>
+</e>
+<e lm="helt utmerket + vblex -> godt + vblex" c="godt gjerast">
+  <p><l>hel<s n="adj"/><s n="sint"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l>utmerket<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>godt<s n="adv"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/><d/></i>
+</e>
+<e lm="utmerket + vblex -> godt + vblex" c="godt gjerast">
+  <p><l>utmerket<s n="adj"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>godt<s n="adv"/><s n="aa"/><d/></r></p>
+  <i><w/><s n="vblex"/><t/><d/></i>
+</e>
+
+<e lm="påløpte renter -> tillagte renter" c="tillagde renter">
+  <p><l>påløpe<s n="adj"/><s n="pp"/></l>   <r>tillegge<s n="adj"/><s n="pp"/></r></p> <i><t/><d/></i>
+  <i><w/><s n="n"/><t/><d/></i>
+</e>
+
+<e lm="skal gis anledning til -> skal få anledning til" c="skal få høve til">
+  <p><l>gi<s n="vblex"/><s n="inf"/><s n="pasv"/></l>   <r>få<s n="vblex"/><s n="inf"/></r></p> <i><t/><d/></i>
+  <i>anledning<s n="n"/><t/><d/></i>
+</e>
+
+<e lm="gis anledning til -> får anledning til" c="får høve til">
+  <p><l>gi<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>få<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <i>anledning<s n="n"/><t/><d/></i>
+</e>
+
+<e lm="være + behov for + art -> trenges + art" c="det trengst ei opprydding">
+  <p><l>være<s n="vblex"/></l>   <r>trenges<s n="vblex"/><s n="pstv"/></r></p> <i><t/><d/></i>
+  <p><l>behov<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l>for<s n="pr"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i><w/><s n="det"/><s n="qnt"/><t/><d/></i>
+</e>
+
+<e lm="være + behov for + mer -> trenges + mer" c="det trengst meir opprydding">
+  <p><l>være<s n="vblex"/></l>   <r>trenges<s n="vblex"/><s n="pstv"/></r></p> <i><t/><d/></i>
+  <p><l>behov<s n="n"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l>for<s n="pr"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i>mye<s n="adj"/><s n="sint"/><s n="comp"/><s n="un"/><s n="sp"/><t/><d/></i>
+</e>
+
+<e lm="det + være + nødvendig med -> det + trenges" c="det + trengast">
+  <i>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><s n="expl"/><t/><d/></i>
+  <p><l>være<s n="vblex"/></l>   <r>trenges<s n="vblex"/><s n="pstv"/></r></p> <i><t/><d/></i>
+  <p><l>nødvendig<s n="adj"/><s n="pst"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l>med<t/></l>   <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="det + være + nødvendig for å -> det + må til for å">
+  <i>den<s n="det"/><s n="dem"/><s n="nt"/><s n="sg"/><s n="expl"/><t/><d/></i>
+  <p><l>være<s n="vblex"/></l>   <r>måtte<s n="vblex"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>til<s n="pr"/><s n="aa"/><d/></r></p>
+  <p><l>nødvendig<s n="adj"/><s n="pst"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i>for<t/><d/></i>
+  <i>å<t/><d/></i>
+</e>
+
+<e lm="bestemte yrker -> visse yrker" c="visse yrke">
+  <p><l>bestemme<s n="vblex"/><s n="pret"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>viss<s n="adj"/><s n="sint"/><s n="pst"/><s n="un"/><s n="pl"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/><s n="pl"/><s n="ind"/><t/><d/></i>
+</e>
+
+<e lm="bestemte yrker -> visse yrker" c="visse yrke">
+  <p><l>bestemme<s n="adj"/><s n="pp"/><s n="pl"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>viss<s n="adj"/><s n="sint"/><s n="pst"/><s n="un"/><s n="pl"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/><s n="pl"/><s n="ind"/><t/><d/></i>
+</e>
+
+<e lm="en bestemt alder -> en viss alder" c="ein viss alder">
+  <par n="mf-artikkel"/>
+  <p><l>bestemme<s n="adj"/><s n="pp"/><s n="mf"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>viss<s n="adj"/><s n="sint"/><s n="pst"/><s n="mf"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/><t/><d/></i>
+</e>
+
+<e lm="et bestemt yrke -> et visst yrke" c="eit visst yrke">
+  <i>en<s n="det"/><s n="qnt"/><s n="nt"/><s n="sg"/><t/><d/></i>
+  <p><l>bestemme<s n="adj"/><s n="pp"/><s n="nt"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <p><l></l>                <r>viss<s n="adj"/><s n="sint"/><s n="pst"/><s n="nt"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/><t/><d/></i>
+</e>
+
+<e lm="stå ved noens side -> stå last og brast med noen">
+  <i>stå<s n="vblex"/><t/><d/></i>
+  <p><l></l>                <r>last<s n="n"/><s n="f"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>og<s n="cnjcoo"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>brast<s n="n"/><s n="mf"/><s n="sp"/><s n="aa"/><d/></r></p>
+  <p><l>ved<s n="pr"/></l>   <r>med<s n="pr"/></r></p> <i><t/><d/></i>
+  <par n="ncmp*"/><i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="gen"/></l>                <r><t/></r></p>   <par n="d"/>
+  <p><l>side<s n="n"/><t/></l>   <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="stå ved Ukrainas side -> stå last og brast med Ukraina">
+  <i>stå<s n="vblex"/><t/><d/></i>
+  <p><l></l>                <r>last<s n="n"/><s n="f"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>og<s n="cnjcoo"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>brast<s n="n"/><s n="mf"/><s n="sp"/><s n="aa"/><d/></r></p>
+  <p><l>ved<s n="pr"/></l>   <r>med<s n="pr"/></r></p> <i><t/><d/></i>
+  <i><w/><s n="np"/><t/></i>
+  <p><l><t/><s n="gen"/></l>                <r><t/></r></p>   <par n="d"/>
+  <p><l>side<s n="n"/><t/></l>   <r></r></p>    <par n="d:"/>
+</e>
+
+<e lm="frasi seg → seie frå seg">
+  <p><l>frasi# seg</l>   <r>si</r></p> <i><t/><d/></i>
+  <par n="ADV|empty"/>
+  <p><l></l>                  <r>fra<s n="pr"/><d/></r></p>
+  <p><l></l>               <r>seg<s n="prn"/><s n="ref"/><s n="p3"/><s n="un"/><s n="sp"/><s n="acc"/><d/></r></p>
+</e>
+
+<e lm="ha/få rettens tillatelse til -> ha/få tillatelse fra retten til" c="ha/få løyve frå retten til">
+  <par n="ha|få"/>
+  <par n="ANYWORDx3|empty"/>
+  <p><l></l>                <r>tillatelse<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>fra<s n="pr"/><s n="aa"/><d/></r></p>
+  <par n="ncmp*"/>
+  <i><w/><s n="n"/><t/></i>
+  <p><l><t/><s n="gen"/></l>                <r><t/></r></p>   <par n="d"/>
+  <p><l>tillatelse<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/></l>   <r></r></p>    <par n="d:"/>
+  <i>til<t/><d/></i>
+</e>
+
+<e lm="sette i tvil → dra i tvil">
+  <p><l>sette<s n="vblex"/></l>   <r>dra<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <i>i<s n="pr"/><t/><d/></i>
+  <i>tvil<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
+</e><e lm="trekke i tvil → dra i tvil">
+  <p><l>trekke<s n="vblex"/></l>   <r>dra<s n="vblex"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <i>i<s n="pr"/><t/><d/></i>
+  <i>tvil<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
+</e>
+
+<e lm="settes ... i tvil → blir ... dregen i tvil">
+  <par n="ANYWORD|"/>
+  <p><l>sette<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>                <r>dra<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>i<s n="pr"/><t/><d/></i>
+  <i>tvil<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
+</e>
+<e lm="trekkes ... i tvil → blir ... drege i tvil">
+  <par n="ANYWORD|"/>
+  <p><l>trekke<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>                <r>dra<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>i<s n="pr"/><t/><d/></i>
+  <i>tvil<s n="n"/><s n="m"/><s n="sg"/><s n="ind"/><t/><d/></i>
+</e>
+
+<e lm="trekkes ... fram → blir ... trukket fram">
+  <p><l>trekke<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>                <r>trekke<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>fram<t/><d/></i>
+</e>
+
+<e lm="trekkes ... fra → blir ... trukket fra">
+  <p><l>trekke<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <par n="ANYWORDx8|empty"/>
+  <p><l></l>                <r>trekke<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <i>fra<t/><d/></i>
+</e>
+
+<e lm="trekkes# fra → blir trukket fra">
+  <p><l>trekke#<b/>fra<s n="vblex"/><s n="pres"/><s n="pasv"/></l>   <r>bli<s n="vblex"/><s n="pres"/></r></p> <i><t/><d/></i>
+  <p><l></l>                <r>trekke<s n="adj"/><s n="pp"/><s n="aa"/><d/></r></p>
+  <p><l></l>                <r>fra<s n="pr"/><s n="aa"/><d/></r></p>
 </e>
 
 </section>

@@ -1,6 +1,90 @@
-#!/bin/sh
+#!/bin/bash
 
 if ! command -V entr >/dev/null;   then echo "Please install entr" >&2;   exit 1; fi
 if ! command -V dwdiff >/dev/null; then echo "Please install dwdiff" >&2; exit 1; fi
 
-find ../apertium-nob/*rlx . -type f -maxdepth 1 | entr -cs "make -j r && <'$1' apertium -d . nob-nno_e | diff -sU1 - '$2' | dwdiff -uc"
+usage () {
+    cat <<EOF
+Run this script to compile your CG files each time you save, also
+translating your example sentence(s) for you.
+
+Examples can be piped in:
+
+\$ echo "en setning" | $0  # Translate "en setning" on save
+
+or be in a file:
+
+\$ $0 input.txt            # Translate input.txt on save
+
+with an optional reference translation to compare against:
+
+\$ $0 input.txt ref.txt    # Translate input.txt and compare with ref.txt on save
+EOF
+}
+
+tmpd=$(mktemp -d -t apertium.XXXXXXXXXX)
+trap 'rm -rf "${tmpd}"' EXIT
+
+case $# in
+    1) input=$1
+       ref="${tmpd}/ref.txt"
+       touch "${ref}"
+       prev_as_ref=true
+       ;;
+    2) input=$1
+       ref=$2
+       prev_as_ref=false
+       ;;
+    0) if [[ -t 0 ]]; then
+           # stdin is terminal, ie. nothing got piped in
+           usage
+           exit 0
+       else
+           input="${tmpd}/input.txt"
+           cat >"${input}"
+           ref="${tmpd}/ref.txt"
+           touch "${ref}"
+           prev_as_ref=true
+       fi
+       ;;
+    *) usage
+       exit 1
+       ;;
+esac
+
+header="${tmpd}/header.txt"
+out="${tmpd}/out.txt"
+dif="${tmpd}/dif.txt"
+touch "${out}" "${dif}"
+
+if "${prev_as_ref}"; then
+    refstr=PREVIOUS
+else
+    refstr=REFERENCE
+fi
+echo "@@
+-${refstr}
++CURRENT
+@@" >"${header}"
+
+redo_script=$(cat <<EOF
+make -s -j r                                            \
+  &&  apertium -d . nob-nno_e <'${input}' >'${out}'     \
+  &&  if diff -U1 '${ref}' '${out}' >'${dif}'; then
+        echo ""
+        echo "(no difference between ${refstr} and CURRENT)"
+        cat '${out}'
+      else
+        grep -hve '^+++' -e '^---' '${header}' '${dif}' \
+         | dwdiff -uc                                   \
+         | sed 's/^@@.*//'
+      fi
+
+if ${prev_as_ref}; then
+    cat '${out}' >'${ref}'
+fi
+EOF
+)
+
+find ../apertium-* -maxdepth 1 -type f -name '*rlx'  \
+    | entr -c bash -c "${redo_script}"

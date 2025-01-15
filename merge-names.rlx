@@ -1,4 +1,9 @@
+# -*- cg-pre-pipe: "apertium -d . nob-nno-lawmerge | cg-conv a" -*-
+
 DELIMITERS = "." "?" sent ;
+
+# TODO: "Lene" "Westgaard+Halle" – merge compound last-names
+
 
 # Example input:
 # "<Rolv>"
@@ -29,17 +34,37 @@ DELIMITERS = "." "?" sent ;
 
 
 # Restricting to letters will exclude e.g. «Haddy N’jie», but at least then bidix will let it through
-LIST wf = "<(\\p{Lu}\\p{L}+)>"r ;
-LIST bf = "(\\p{Lu}\\p{L}+)"r ;
+# We allow a single space or dash, like "Arild Hareide" or "Bakke-Jensen", but require titlecase on the second part (so "Oslo lufthavn" doesn't go through)
+# We also allow the regex to match just a single uppercase letter + single dot, like initial "E."
+LIST wf = "<(\\p{Lu}\\p{Ll}+(?:[ -]\\p{Lu}\\p{Ll}+)?|\\p{Lu}[.])>"r ;
+LIST bf =  "(\\p{Lu}\\p{Ll}+(?:[ -]\\p{Lu}\\p{Ll}+)?|\\p{Lu}[.])"r ;
 LIST AA = "<\\p{Lu}\\p{Lu}.*>"r ; # at least two upper case chars in wf
 LIST fn = (np ant) ;
 LIST ln =          (np cog) (np top) (np cgguess) ; # NB: toponyms and guessed names are also considered possible middle/last names
 LIST mn = (np ant) (np cog) (np top) ;
+LIST mn/init = (np ant) (np cog) (np top) (np init) ;
+LIST ln/init =     (np cog) (np top) (np cgguess) (np init) ; # NB: toponyms and guessed names are also considered possible middle/last names
+LIST init = (np init) ;
+LIST org = (np org) ;
 LIST aa = /^\([Aa]+\)$/r ;      # TODO: no longer needed, now we use * to copy tags from first word
 LIST syn =  /^\(@.*\)$/r ;
 LIST gen = gen ;
 LIST np = np ;
 
+LIST _ = (*) ;
+
+
+# We can merge up to three lemmas in a row, but if incoming cohorts
+# already have spaces we might end up with longer sequences than .dix
+# can handle. The three-lemma rules should at most allow one of the
+# cohorts to have spaces; the below TEMPLATE will match if two of them
+# have spaces:
+LIST hasSpace = ".* .*"r ;
+TEMPLATE twoSpaces =
+        ([ hasSpace, hasSpace, _      ])
+     OR ([ _       , hasSpace, hasSpace ])
+     OR ([ hasSpace, _       , hasSpace ])
+        ;
 
 # Never merge these toponyms:
 LIST top-exceptions = "Norge" "Noreg" "Japan" "USA" "Sverige" "Danmark" "Finland" "Island" "Storbritannia"
@@ -59,8 +84,9 @@ MERGECOHORTS:f+m+lG ("<$1 $3 $5>"v "$2 $4 $6"v cgguess gen * VSTR:$8)
                   (NEGATE 0/1 (*)) (NEGATE 0 gen)
                   (NEGATE 1/1 (*)) (NEGATE 1 gen) (NEGATE 1 AA)
                   (NEGATE 2/1 (*))        (2 gen) (NEGATE 2 AA)
+                  (NEGATE 0 T:twoSpaces)
           WITH
-                  (1 wf + bf + mn)
+                  (1 wf + bf + mn/init)
                   (2 wf + bf + ln + aa + syn)
 ;
 
@@ -75,22 +101,45 @@ MERGECOHORTS:m+lG ("<$1 $3>"v "$2 $4"v cgguess gen * VSTR:$6)
 
 
 # Then non-genitives:
-MERGECOHORTS:f+m+l ("<$1 $3 $5>"v "$2 $4 $6"v cgguess * VSTR:$8)
+# For these we allow compounds, and just use form as lemma (since compound lemmas are split):
+MERGECOHORTS:f+i+m+l ("<$1 $3 $5 $7>"v "$1 $3 $5 $7"v cgguess * VSTR:$9)
                      wf + bf + fn
-                  (NEGATE 0/1 (*)) (NEGATE 0 gen)
-                  (NEGATE 1/1 (*)) (NEGATE 1 gen) (NEGATE 1 AA)
-                  (NEGATE 2/1 (*)) (NEGATE 2 gen) (NEGATE 2 AA)
+                  (NEGATE 0 gen)
+                  (NEGATE 1 gen) (NEGATE 1 AA)
+                  (NEGATE 2 gen) (NEGATE 2 AA)
+                  (NEGATE 3 gen) (NEGATE 3 AA)
+                  (NEGATE 0 T:twoSpaces)
           WITH
-                  (1 wf + bf + mn)
+                  (1 wf + bf + init)
+                  (2 wf + bf + mn/init)
+                  (3 wf + bf + ln + syn)
+;                   # We can handle four in a row if second is initial
+
+MERGECOHORTS:f+m+l ("<$1 $3 $5>"v "$1 $3 $5"v cgguess * VSTR:$8)
+                     wf + bf + fn
+                  (NEGATE 0 gen)
+                  (NEGATE 1 gen) (NEGATE 1 AA)
+                  (NEGATE 2 gen) (NEGATE 2 AA)
+                  (NEGATE 0 T:twoSpaces)
+          WITH
+                  (1 wf + bf + mn/init)
                   (2 wf + bf + ln + aa + syn)
 ;
 
-MERGECOHORTS:m+l ("<$1 $3>"v "$2 $4"v cgguess * VSTR:$6)
+MERGECOHORTS:m+l ("<$1 $3>"v "$1 $3"v cgguess * VSTR:$6)
                      wf + bf + mn
-                  (NEGATE 0/1 (*)) (NEGATE 0 gen)
-                  (NEGATE 1/1 (*)) (NEGATE 1 gen) (NEGATE 1 AA)
+                  (NEGATE 0 gen)
+                  (NEGATE 1 gen) (NEGATE 1 AA)
           WITH
-                  (1 wf + bf + ln + aa + syn)
+                  (1 wf + bf + ln/init + aa + syn)
+;
+
+MERGECOHORTS:org+org ("<$1 $3>"v "$1 $3"v cgguess * VSTR:$6)
+                     wf + bf + org
+                  (NEGATE 0 gen)
+                  (NEGATE 1 gen) (NEGATE 1 AA)
+          WITH
+                  (1 wf + bf + org + aa + syn)
 ;
 
 REMOVE:1@ (@subst→) ;
@@ -106,3 +155,6 @@ SUBSTITUTE:nom (cgguess     np cog) (np cog cgguess    ) (cgguess     np cog) - 
 
 SUBSTITUTE:gen (cgguess gen np top) (np top cgguess gen) (cgguess gen np top)         ;
 SUBSTITUTE:nom (cgguess     np top) (np top cgguess    ) (cgguess     np top) - (gen) ;
+
+SUBSTITUTE:gen (cgguess gen np org) (np org cgguess gen) (cgguess gen np org)         ;
+SUBSTITUTE:nom (cgguess     np org) (np org cgguess    ) (cgguess     np org) - (gen) ;

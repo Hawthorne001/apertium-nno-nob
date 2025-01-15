@@ -21,6 +21,11 @@
       <program name="apertium-tagger -p -g $2">
         <file name="nob-nno.prob"/>
       </program>
+      <program name="cg-proc" debug-suff="quote">
+        <file name="merge-quotes.rlx.bin"/>
+      </program>
+      <program name="lt-merge" debug-suff="lumerge">
+      </program>
       <program name="lsx-proc -w -p" debug-suff="lawmerge">
         <file name="merge-laws.autoseq.bin"/>
       </program>
@@ -42,6 +47,9 @@
       </program>
       <program name="lrx-proc -m">
         <file name="nob-nno.autolex.bin"/>
+      </program>
+      <program name="lsx-proc -w -p" debug-suff="postlex">
+        <file name="nob-nno.postlex.bin"/>
       </program>
       <program name="apertium-transfer -b" debug-suff="refsyn">
 	<file name="apertium-nno-nob.nob-nno.refsyn.t1x"/>
@@ -65,6 +73,8 @@
       <program name="lt-proc $1 -b" debug-suff="dgen">
         <file name="nob-nno.autogen.bin"/>
       </program>
+      <program name="lt-merge --unmerge" debug-suff="unmerge">
+      </program>
       <program name="cg-proc -1 -n -g" debug-suff="genprefs">
         <file name="nob-nno.genprefs.rlx.bin"/>
       </program>
@@ -74,7 +84,7 @@
     </pipeline>
   </mode>
 
-  <mode name="nob-nno-autoseq-trace" install="no" gendebug="no">
+  <mode name="nob-nno-autoseq_trace" install="no" gendebug="no">
     <pipeline>
       <program name="lt-proc -w -e">
         <file name="nob-nno.automorf.bin"/>
@@ -94,6 +104,11 @@
       <program name="apertium-tagger -p -g $2">
         <file name="nob-nno.prob"/>
       </program>
+      <program name="cg-proc" debug-suff="quote">
+        <file name="merge-quotes.rlx.bin"/>
+      </program>
+      <program name="lt-merge" debug-suff="lumerge">
+      </program>
       <program name="lsx-proc -w -p" debug-suff="lawmerge">
         <file name="merge-laws.autoseq.bin"/>
       </program>
@@ -106,7 +121,7 @@
       </program>
     </pipeline>
   </mode>
-  <mode name="nob-nno_e-autoseq-trace" install="no" gendebug="no">
+  <mode name="nob-nno_e-autoseq_trace" install="no" gendebug="no">
     <pipeline>
       <program name="lt-proc -w -e">
         <file name="nob-nno.automorf.bin"/>
@@ -126,6 +141,11 @@
       <program name="apertium-tagger -p -g $2">
         <file name="nob-nno.prob"/>
       </program>
+      <program name="cg-proc" debug-suff="quote">
+        <file name="merge-quotes.rlx.bin"/>
+      </program>
+      <program name="lt-merge" debug-suff="lumerge">
+      </program>
       <program name="lsx-proc -w -p" debug-suff="lawmerge">
         <file name="merge-laws.autoseq.bin"/>
       </program>
@@ -135,79 +155,6 @@
       <program name="apertium-pretransfer"/>
       <program name="lsx-proc -w">
         <file name="nob-nno.autoseq-trace.bin"/>
-      </program>
-    </pipeline>
-  </mode>
-
-  <mode name="before" gendebug="yes">
-    <pipeline>
-      <program name="lt-proc -w -e">
-        <file name="nob-nno.automorf.bin"/>
-      </program>
-      <program name="cg-proc" debug-suff="seg">
-	<file name="nob-nno.seg.rlx.bin"/>
-      </program>
-      <program name="cg-proc">
-	<file name="nob-nno.rlx.bin"/>
-      </program>
-      <program name="cg-proc" debug-suff="capstag">
-	<file name="capstag.rlx.bin"/>
-      </program>
-      <program name="cg-proc" debug-suff="syntax">
-	<file name="nob-nno.syn.rlx.bin"/>
-      </program>
-      <program name="lsx-proc -w -p" debug-suff="lawmerge">
-        <file name="merge-laws.autoseq.bin"/>
-      </program>
-      <program name="apertium-tagger -g $2">
-        <file name="nob-nno.prob"/>
-      </program>
-      <program name="apertium-pretransfer"/>
-      <program name="lsx-proc -w">
-        <file name="nob-nno.autoseq.bin"/>
-      </program>
-      <program name="lsx-proc -w" debug-suff="capsautoseq">
-        <file name="capstag.autoseq.bin"/>
-      </program>
-      <program name="lt-proc -b">
-        <file name="nob-nno.autobil.bin"/>
-      </program>
-      <program name="cg-proc" debug-suff="biprefs">
-        <file name="nob-nno.biprefs.rlx.bin"/>
-      </program>
-      <program name="lrx-proc -m">
-        <file name="nob-nno.autolex.bin"/>
-      </program>
-      <program name="apertium-transfer -b" debug-suff="refsyn">
-	<file name="apertium-nno-nob.nob-nno.refsyn.t1x"/>
-	<file name="nob-nno.refsyn.t1x.bin"/>
-      </program>
-      <program name="apertium-transfer -b">
-        <file name="apertium-nno-nob.nob-nno.t1x"/>
-        <file name="nob-nno.t1x.bin"/>
-      </program>
-      <program name="apertium-interchunk">
-        <file name="apertium-nno-nob.nob-nno.t2x"/>
-        <file name="nob-nno.t2x.bin"/>
-      </program>
-      <program name="apertium-postchunk">
-        <file name="apertium-nno-nob.nob-nno.t3x"/>
-        <file name="nob-nno.t3x.bin"/>
-      </program>
-      <program name="lsx-proc -w" debug-suff="tlseq">
-        <file name="nno.autoseq.bin"/>
-      </program>
-      <program name="lt-proc $1 -b" debug-suff="dgen">
-        <file name="nob-nno.autogen.bin"/>
-      </program>
-      <program name="cg-proc" debug-suff="e_vi-genprefs">
-        <file name="nob-nno.e_vi_genprefs.rlx.bin"/>
-      </program>
-      <program name="cg-proc -1 -n -g" debug-suff="genprefs">
-        <file name="nob-nno.genprefs.rlx.bin"/>
-      </program>
-      <program name="lt-proc -p">
-        <file name="nob-nno.autopgen.bin"/>
       </program>
     </pipeline>
   </mode>
@@ -232,6 +179,11 @@
       <program name="apertium-tagger -p -g $2">
         <file name="nob-nno.prob"/>
       </program>
+      <program name="cg-proc" debug-suff="quote">
+        <file name="merge-quotes.rlx.bin"/>
+      </program>
+      <program name="lt-merge" debug-suff="lumerge">
+      </program>
       <program name="lsx-proc -w -p" debug-suff="lawmerge">
         <file name="merge-laws.autoseq.bin"/>
       </program>
@@ -253,6 +205,9 @@
       </program>
       <program name="lrx-proc -m">
         <file name="nob-nno.autolex.bin"/>
+      </program>
+      <program name="lsx-proc -w -p" debug-suff="postlex">
+        <file name="nob-nno.postlex.bin"/>
       </program>
       <program name="apertium-transfer -b" debug-suff="refsyn">
 	<file name="apertium-nno-nob.nob-nno.refsyn.t1x"/>
@@ -276,6 +231,8 @@
       <program name="lt-proc $1 -b" debug-suff="dgen">
         <file name="nob-nno.autogen.bin"/>
       </program>
+      <program name="lt-merge --unmerge" debug-suff="unmerge">
+      </program>
       <program name="cg-proc" debug-suff="e_vi-genprefs">
         <file name="nob-nno.e_vi_genprefs.rlx.bin"/>
       </program>
@@ -288,8 +245,7 @@
     </pipeline>
   </mode>
 
-
-  <mode name="nob-nno-surf-biltrans" install="no" gendebug="no">
+  <mode name="nob-nno-surf_biltrans" install="no" gendebug="no">
     <pipeline>
       <program name="lt-proc -w -e">
         <file name="nob-nno.automorf.bin"/>
@@ -338,6 +294,9 @@
       </program>
       <program name="lrx-proc -m">
         <file name="nob-nno.autolex.bin"/>
+      </program>
+      <program name="lsx-proc -w -p" debug-suff="postlex">
+        <file name="nob-nno.postlex.bin"/>
       </program>
       <program name="apertium-transfer -b">
         <file name="apertium-nno-nob.nob-nno.t1x"/>
