@@ -2923,6 +2923,15 @@
     <repeat from="0" upto="1"><match/></repeat>
     <match lemma="løpe" tags="vblex.*"><select lemma="løpe"/></match>
   </rule>
+  <rule weight="2.0" c="stipend som … løper">
+    <or>
+      <match lemma="stipend"/>
+      <match lemma="kontrakt"/>
+      <match lemma="avtale"/>
+    </or>
+    <repeat from="0" upto="10"><match/></repeat>
+    <match lemma="løpe" tags="vblex.*"><select lemma="vare"/></match>
+  </rule>
   <rule weight="2.0" c="(kontrakten/avtalen) løper i (ytterligere) tre år">
     <match lemma="løpe" tags="vblex.*"><select lemma="vare"/></match>
     <match lemma="i"/>
