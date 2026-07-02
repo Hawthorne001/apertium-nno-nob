@@ -2933,6 +2933,11 @@
       <match lemma="måned"/>
     </or>
   </rule>
+  <rule weight="2.0" >
+    <match lemma="løpe" tags="vblex.*"><select lemma="gå"/></match>
+    <match lemma="tid"/>
+    <match lemma="ut"/>
+  </rule>
 
   <rule><match lemma="grusom" tags="adj.*"><select lemma="forferdeleg"/></match></rule>
   <rule weight="2.0">
