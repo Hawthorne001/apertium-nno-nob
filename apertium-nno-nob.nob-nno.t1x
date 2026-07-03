@@ -1948,6 +1948,8 @@
       <list-item v="penge_stat"/>
       <list-item v="stilling_kaffi"/>
       <list-item v="funksjon_hjerne"/>
+      <list-item v="oscarpris_bransje"/>
+      <list-item v="pris_bransje"/>
       <list-item v="statistikk_bransje"/>
       <list-item v="motpart_fagforbund"/>
       <list-item v="motpart_forbund"/>
