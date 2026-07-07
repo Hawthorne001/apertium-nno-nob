@@ -1777,6 +1777,11 @@
       <select lemma="utdele"/>
     </match>
   </rule>
+  <rule weight="2.0">
+    <match lemma="få" tags="vblex.*"/>
+    <repeat from="0" upto="3"><match/></repeat>
+    <match lemma="utdele" tags="*.pp.*"><select lemma="utdele"/></match>
+  </rule>
 
   <rule><match lemma="tilbakelegge" tags="vblex.*"><select lemma="legge# bak seg"/></match></rule>
   <rule><match lemma="tilbakelegge" tags="adj.*"><select lemma="tilbakelegge"/></match></rule>
@@ -10209,6 +10214,7 @@
       <match lemma="år" tags="n.*.gen.*"/>
       <match lemma="fjorår" tags="n.*.gen.*"/>
       <match lemma="antall" tags="n.*"/>
+      <match lemma="per" tags="pr.*"/>
     </or>
     <match lemma="kull" tags="n.nt.*"><select lemma="kull"/></match>
   </rule>
