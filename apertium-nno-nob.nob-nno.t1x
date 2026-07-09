@@ -2573,6 +2573,7 @@
 	<list-item v="slekt_gang"/>	<!-- ns[slekt][gang] 6 > biAllPr  -->
 	<list-item v="spel_fase"/>	<!-- ns[spel][fase] 4 > biAllPr 1 -->
 	<list-item v="språk_evne"/>	<!-- ns[språk][evne] 3 > biAllPr  -->
+	<list-item v="stat_rekning"/>	<!-- ns[stat][rekning] 2 > biAllPr  -->
 	<list-item v="stikkord_form"/>	<!-- ns[stikkord][form] 5 > biAllPr  -->
 	<list-item v="storm_herjing"/>	<!-- ns[storm][herjing] 6 > biAllPr  -->
 	<list-item v="tid_krav"/>	<!-- ns[tid][krav] 5 > biAllPr 1 -->
