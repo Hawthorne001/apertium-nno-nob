@@ -9578,9 +9578,6 @@
   <rule><match lemma="fremholde" tags="adj.*"><select lemma="påpeike"/></match></rule>
   <rule><match lemma="framholde" tags="adj.*"><select lemma="påpeike"/></match></rule>
 
-  <rule><match lemma="avspeile" tags="vblex.*"><select lemma="spegle"/></match></rule>
-  <rule><match lemma="gjenspeile" tags="vblex.*"><select lemma="spegle"/></match></rule>
-
   <rule><match lemma="utgi" tags="vblex.*"><select lemma="gje# ut"/></match></rule>
   <rule><match lemma="utgi" tags="adj.*"><select lemma="utgje"/></match></rule>
 
